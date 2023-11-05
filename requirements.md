@@ -1,10 +1,13 @@
 ## <remove all of the example text and notes in < > such as this one>
 
 ## Functional Requirements
-1. requirement <should be 1 sentence that describes requirement>
-2. requirement
-3. requirement
-4. requirement
+1. Login Page: A secure and user-friendly login interface with fields for username and password, a login button, and links for account recovery and new user registration.
+
+2. Sidebar for Notes: An organized and collapsible sidebar categorizes notes into main folders and subfolders, with a search function for easy navigation.
+
+3. Create/Delete Notes: Features to create new notes with a rich-text editor, tag and categorize them, and options to delete with a safeguard against accidental loss.
+
+4. Autosave Functionality: An autosave feature with customizable intervals set by the user to ensure that all changes in the notes are saved automatically and frequently.
 5. requirement
 6. requirement
 7. requirement
