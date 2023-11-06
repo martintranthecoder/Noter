@@ -27,6 +27,11 @@
 
 <using the syntax [](images/ui1.png) add images in a folder called images/ and place sketches of your webpages>
 
+### Delegation
+Khai: 
+Hannah: 1, 3, 4, 6
+Martin:
+
 ## Non-functional Requirements
 1. Custom light/dark mode: An option for the user to set the page to have a light background and dark text (light mode) or a dark background and light text (dark mode)
 
@@ -79,7 +84,7 @@ describe multiple issues that may arise and their outcomes>
 5. After the user clicks the link in the email, the system will apply the changes and take the user to a page that says "Password has been changed. You may return to the home page" and has a link back to the home page
 
 
-1. Sidebar for Notes (insert name)
+### 2. Sidebar for Notes (insert name)
 - **Pre-condition:** 
 - **Trigger:** 
 - **Primary Sequence:**
@@ -89,27 +94,27 @@ describe multiple issues that may arise and their outcomes>
 1. 
 
 
-1. Create/Delete Notes (Hannah Ta)
-- **Pre-condition:** User must be a verified and logged in account
+### 3. Create/Delete Notes (Hannah Ta)
+- **Pre-condition:** User must be a verified and logged-in account
 - **Trigger:** Selection of note options in the form of a create/delete button or a list of note settings
 - **Primary Sequence:**
 1. User selects a "create note" or selects a note(s) to delete
-2. If "create note" is selected, system will bring up a page that lists parts of the note to add before creating such as name, tag, note location, etc.
+2. If "create note" is selected, the system will bring up a page that lists parts of the note to add before creating such as name, tag, note location, etc.
 3. User will fill out the information page and click "create note"
-4. System will check if required fields (name and location) are filled and confirm decision with user
-5. User selects "yes" to create note or "no" to cancel
-6. If a note/notes are selected/highlighted by user, a "delete note(s)" option will be available
+4. System will check if required fields (name and location) are filled and confirm the decision with the user
+5. User selects "yes" to create a note or "no" to cancel
+6. If a note/notes are selected/highlighted by a user, a "delete note(s)" option will be available
 7. User clicks on "delete note(s)"
-8. System will show the note(s) that will be deleted and prompt the user to confirm deletion
+8. System will show the note(s) that will be deleted and prompt the user to confirm the deletion
 9. User can either cancel or confirm "yes" to delete note(s)
-10. If "yes" is selected, system will delete the note(s) 
+10. If "yes" is selected, the system will delete the note(s) 
 - **Primary Postconditions:** User's desired note is created or desired note(s) is deleted
 - **Alternate Sequence:** If the note being deleted has other collaborators on it
 1. System will only delete the user's copy of the note and not the other collaborators' copies
-2. System will remove user from the list of editors/readers on the note
+2. System will remove the user from the list of editors/readers on the note
 
 
-1. Autosave Functionality (Hannah Ta)
+### 4. Autosave Functionality (Hannah Ta)
 - **Pre-condition:** User must be logged in
 - **Trigger:** User goes to the settings list
 - **Primary Sequence:**
@@ -118,13 +123,13 @@ describe multiple issues that may arise and their outcomes>
 3. User selects or inputs the time interval for the autosaves
 4. System will set the internal timer for autosaves to the new set time interval
 - **Primary Postconditions:** The system will change the timer to the newly selected/inputted time interval by the user and autosave at every increment of the new time interval
-- **Alternate Sequence:** User wants to revert back to previous time interval
+- **Alternate Sequence:** User wants to revert back to the previous time interval
 1. System will have saved the previous time interval before the most recent change
-2. User has the option to select "revert to previous time interval"
-3. Selecting the option will prompt system to change the time interval back to the previous one using the saved time interval.
+2. The user has the option to select "revert to previous time interval"
+3. Selecting the option will prompt the system to change the time interval back to the previous one using the saved time interval.
 
 
-1. Editing Notes (insert name)
+#### 5. Editing Notes (insert name)
 - **Pre-condition:** 
 - **Trigger:** 
 - **Primary Sequence:**
@@ -134,7 +139,7 @@ describe multiple issues that may arise and their outcomes>
 1. 
 
 
-1. Create Account Page (Hannah Ta)
+### 6. Create an Account Page (Hannah Ta)
 - **Pre-condition:** User can either be logged in or not logged in
 - **Trigger:** User selects the "create account" option either from the home page or the login page
 - **Primary Sequence:**
@@ -150,7 +155,7 @@ describe multiple issues that may arise and their outcomes>
 2. If username matches with an already existing username in the databse, system will tell user "username has already been taken" and prompt user to enter a new username
 
 
-1. <requirement> (insert name)
+### 7. <requirement> (insert name)
 - **Pre-condition:** 
 - **Trigger:** 
 - **Primary Sequence:**
