@@ -129,7 +129,7 @@ describe multiple issues that may arise and their outcomes>
 3. Selecting the option will prompt the system to change the time interval back to the previous one using the saved time interval.
 
 
-#### 5. Editing Notes (insert name)
+### 5. Editing Notes (insert name)
 - **Pre-condition:** 
 - **Trigger:** 
 - **Primary Sequence:**
