@@ -11,16 +11,19 @@
 
 5. Editing Notes: A feature that allows the user to add text in notes and edit the text in ways like highlighting, striking, or bolding the text.
 
-6. Create Account Page: A page for the user to create a new account and confirms with the system for verification and security purposes before the system creates the account.
+6. Create Account Page: A page for the user to create a new account and confirm with the system for verification and security purposes before the system creates the account.
 
-7. requirement
-8. requirement
-9. requirement
-10. requirement
-11. requirement
-12. requirement
-13. requirement
-14. requirement
+7. Advanced Search Using Regular Expressions: A functionality that helps users to search for words and allows users to perform complex pattern matching.
+
+8. Storing Notes in the Database: Notes and associated metadata (e.g., tags, folders, timestamps) should be stored securely in a database. This ensures persistent storage and retrieval of user-generated content.
+
+9. Code Blocks Functionality: It allows users to insert and format code snippets within their notes
+
+10. Adding Others as Editors/Viewers: Users can add other people to collaborate or view their note.
+
+11. Connect with Notion API: Integrates the note-taking app with Notion's API, allowing for seamless interaction with Notion's features and functionalities.
+
+12. requirement ( not sure )
 
 <using the syntax [](images/ui1.png) add images in a folder called images/ and place sketches of your webpages>
 
@@ -59,21 +62,21 @@ describe multiple issues that may arise and their outcomes>
 
 
 ## list of real use cases start here (will delete above example once all 14 use cases are finished)
-1. Login Page (Hannah Ta)
+### 1. Login Page (Hannah Ta)
 - **Pre-condition:** User is not currently logged in
 - **Trigger:** User goes to the login page through a hyperlink called "login"
 - **Primary Sequence:**
 1. User selects the "login" link on the home page
-2. System takes user to a page that prompts the user to input their account information (username/email and password)
-3. User inputs the information and presses "login" to attempt a login
-4. System will verify account matches with an existing account in a database containing all created accounts
-- **Primary Postconditions:** User will be logged in given the system matches the informaiton with an existing account
+2. System takes the user to a page that prompts the user to input their account information (username/email and password)
+3. The user inputs the information and presses "login" to attempt a login
+4. System will verify that the account matches an existing account in a database containing all created accounts
+- **Primary Postconditions:** User will be logged in given the system matches the information with an existing account
 - **Alternate Sequence:** User information does not match or doesn't exist
-1. System will tell user "Information does not match with an existing account/does not exist"
-2. User can select the "Forgot password?" option or "Create a new account"
-3. If "Forgot password?" is selected, system will take user to a different page that will prompt user to enter email then a new password and re-enter said password
-4. Once confirmed by user, system will send an email to the inputted email account that contains a link to verify the user before the change
-5. After user clicks the link in the email, the system will apply the changes and take the user to a page that says "Password has been changed. You may return to the home page" and has a link back to the home page
+1. System will tell the user "Information does not match with an existing account/does not exist"
+2. The user can select the "Forgot password?" option or "Create a new account"
+3. If "Forgot password?" is selected, the system will take user to a different page that will prompt user to enter email then a new password and re-enter said password
+4. Once confirmed by the user, the system will send an email to the inputted email account that contains a link to verify the user before the change
+5. After the user clicks the link in the email, the system will apply the changes and take the user to a page that says "Password has been changed. You may return to the home page" and has a link back to the home page
 
 
 1. Sidebar for Notes (insert name)
