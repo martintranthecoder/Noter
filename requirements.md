@@ -141,14 +141,23 @@ describe multiple issues that may arise and their outcomes>
 3. Selecting the option will prompt the system to change the time interval back to the previous one using the saved time interval.
 
 
-### 5. Editing Notes (insert name)
-- **Pre-condition:** 
-- **Trigger:** 
-- **Primary Sequence:**
-1. 
-- **Primary Postconditions:** 
+### 5. Editing Notes (KHAI TRUONG)
+- **Pre-condition:** The user is logged into their account and has permission to edit the note.
+                     The note that the user wishes to edit is accessible.
+- **Trigger:** The user decides to edit the text within a note.
+- **Primary Sequence:** 
+1. The user navigates to the desired note through the sidebar or search function and opens it.
+2. The user clicks on the 'Edit' button or directly clicks into the text area of the note to start editing.
+3. The user adds new text, deletes existing text, or modifies it as needed.
+4. To highlight, the user selects the text and clicks the 'Highlight' button.
+5. To strike-through, the user selects the text and clicks the 'Underline' button.
+6. To make text bold, the user selects the text and clicks the 'Bold' button or uses the keyboard shortcut.
+- **Primary Postconditions:** The user's changes are saved and reflected in the note.
+                              The note displays the updated content with the applied formatting.
 - **Alternate Sequence:** 
-1. 
+1. If the user attempts to save the changes and an error occurs, the system notifies the user of the failure and provides options to try saving again or to recover unsaved changes.
+2. If the user wishes to undo recent changes, they can use the 'Undo' function or keyboard shortcut to revert to the previous state of the note.
+3. If the system detects unsaved changes when the user attempts to navigate away from the note, it prompts the user to save or discard the changes before leaving.
 
 
 ### 6. Create an Account Page (Hannah Ta)
