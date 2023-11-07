@@ -176,13 +176,23 @@ describe multiple issues that may arise and their outcomes>
 2. If username matches with an already existing username in the databse, system will tell user "username has already been taken" and prompt user to enter a new username
 
 
-### 7. <requirement> (insert name)
-- **Pre-condition:** 
-- **Trigger:** 
-- **Primary Sequence:**
-1. 
-- **Primary Postconditions:** 
+### 7. Edit/View Permissions to Others (KHAI TRUONG)
+- **Pre-condition:** User must be logged into their account.
+                    The note has already been created and saved in the user's account.
+                    The user has permission to set access rights for the note.
+- **Trigger:** The user adds collaborators to a note for viewing or editing.
+- **Primary Sequence:** 
+1. The user opens the note they wish to share and clicks on the 'Share' or 'Collaborate' button.
+2. The user enters the email addresses or usernames of the individuals they want to collaborate with.
+3. For each collaborator, the user sets the permission level: 'Can Edit' or 'Can View'.
+4. The user clicks the 'Send Invites' button to send collaboration invites to the chosen individuals.
+5. The system sends the invitations and displays a confirmation message to the user.
+6. Collaborators receive the invitation and must accept it to gain access to the note.
+- **Primary Postconditions:** The invited collaborators have received their invitations.
+                              Once accepted, collaborators have the appropriate access rights set by the user.
 - **Alternate Sequence:** 
-1. 
+1. If the system cannot send invitations (due to an invalid email address, system error, etc.), it informs the user of the failure and provides an option to try again.
+2. If a collaborator does not accept the invitation within a specific timeframe, the system may remind the user to follow up or resend the invitation.
+3. The user may revoke or change permissions at any time if they decide to modify access rights.
 
 
