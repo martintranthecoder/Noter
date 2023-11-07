@@ -19,7 +19,7 @@
 
 9. Code Blocks Functionality: It allows users to insert and format code snippets within their notes
 
-10. Adding Others as Editors/Viewers: Users can add other people to collaborate or view their note.
+10. Adding Others as Editors/Viewers: Users can add other people to collaborate or view their notes.
 
 11. Connect with Notion API: Integrates the note-taking app with Notion's API, allowing for seamless interaction with Notion's features and functionalities.
 
@@ -35,7 +35,7 @@ Martin:
 ## Non-functional Requirements
 1. Custom light/dark mode: An option for the user to set the page to have a light background and dark text (light mode) or a dark background and light text (dark mode)
 
-2. non-functional
+2. Passwords of users will be stored in the Database integrating the MD5 hashing algorithm
 
 <each of the 14 requirements will have a use case associated with it>
 ## Use Cases <Add name of who will write (this specific requirement) and implement (in subsequent milestones) the use case below>
@@ -150,7 +150,7 @@ describe multiple issues that may arise and their outcomes>
 2. The user clicks on the 'Edit' button or directly clicks into the text area of the note to start editing.
 3. The user adds new text, deletes existing text, or modifies it as needed.
 4. To highlight, the user selects the text and clicks the 'Highlight' button.
-5. To strike-through, the user selects the text and clicks the 'Underline' button.
+5. To strike through, the user selects the text and clicks the 'Underline' button.
 6. To make text bold, the user selects the text and clicks the 'Bold' button or uses the keyboard shortcut.
 - **Primary Postconditions:** The user's changes are saved and reflected in the note.
                               The note displays the updated content with the applied formatting.
@@ -176,7 +176,39 @@ describe multiple issues that may arise and their outcomes>
 2. If username matches with an already existing username in the databse, system will tell user "username has already been taken" and prompt user to enter a new username
 
 
-### 7. Edit/View Permissions to Others (KHAI TRUONG)
+### 7. Advanced Search Using Regular Expressions (Martin Tran)
+
+- **Pre-condition:** 
+- **Trigger:** 
+- **Primary Sequence:**
+1. 
+- **Primary Postconditions:**
+1.
+- **Alternate Sequence:** 
+1.
+
+
+### 8. Storing Notes in the Database (Martin Tran)
+- **Pre-condition:** 
+- **Trigger:** 
+- **Primary Sequence:**
+1. 
+- **Primary Postconditions:**
+1.
+- **Alternate Sequence:** 
+1.
+
+### 9. Code Blocks Functionality (Martin Tran)
+- **Pre-condition:** 
+- **Trigger:** 
+- **Primary Sequence:**
+1. 
+- **Primary Postconditions:**
+1.
+- **Alternate Sequence:** 
+
+
+### 10. Edit/View Permissions to Others (KHAI TRUONG)
 - **Pre-condition:** User must be logged into their account.
                     The note has already been created and saved in the user's account.
                     The user has permission to set access rights for the note.
@@ -195,4 +227,12 @@ describe multiple issues that may arise and their outcomes>
 2. If a collaborator does not accept the invitation within a specific timeframe, the system may remind the user to follow up or resend the invitation.
 3. The user may revoke or change permissions at any time if they decide to modify access rights.
 
+### 11. Connect with Notion API (Martin Tran)
+- **Pre-condition:** 
+- **Trigger:** 
+- **Primary Sequence:**
+1. 
+- **Primary Postconditions:**
+1.
+- **Alternate Sequence:** 
 
