@@ -84,14 +84,26 @@ describe multiple issues that may arise and their outcomes>
 5. After the user clicks the link in the email, the system will apply the changes and take the user to a page that says "Password has been changed. You may return to the home page" and has a link back to the home page
 
 
-### 2. Sidebar for Notes (insert name)
-- **Pre-condition:** 
-- **Trigger:** 
+### 2. Sidebar for Notes (KHAI TRUONG)
+- **Pre-condition:**
+  The user is logged into their account.
+   There are existing notes and folders within the user's account.
+- **Trigger:** The user wants to locate a specific note or view the contents of a folder.
 - **Primary Sequence:**
-1. 
-- **Primary Postconditions:** 
+1. The user clicks on the sidebar icon to expand it if it's not already visible.
+2. The sidebar displays a list of main folders, each potentially containing subfolders and individual notes.
+3. The user clicks on a folder to expand it, revealing any subfolders or notes.
+4. The user browses through the list and selects a specific note, which opens for viewing or editing.
+5. The user uses the search bar at the top of the sidebar to type in keywords or note titles.
+6. The system dynamically filters and displays matching results as the user types.
+7. From the search results, the user selects a note to open.
+8. After navigating to the desired location, the user clicks the sidebar icon again to collapse it and maximize the workspace.
+- **Primary Postconditions:** The user has successfully located and accessed the desired note or folder.
+                              The sidebar has either remained expanded or collapsed according to the user's preference.
 - **Alternate Sequence:** 
-1. 
+1. If no matching results are found during a search, the system displays a message such as "No matches found" and suggests checking for typos or trying different keywords.
+2. If a user tries to access a folder or note that has been deleted or moved, the system shows an error or notification and refreshes the sidebar to reflect the current structure.
+3. If the sidebar fails to load due to a system error, the application displays an error message and provides the option to reload the sidebar.
 
 
 ### 3. Create/Delete Notes (Hannah Ta)
