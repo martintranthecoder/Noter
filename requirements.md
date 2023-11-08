@@ -17,7 +17,7 @@
 
 8. Storing Notes in the Database: Notes and associated metadata (e.g., tags, folders, timestamps) should be stored securely in a database. This ensures persistent storage and retrieval of user-generated content.
 
-9.
+9. Attach Images inside the Note Functionality: Images can be embedded inside the users' notes.
 
 10. Adding Others as Editors/Viewers: Users can add other people to collaborate or view their notes.
 
@@ -108,7 +108,7 @@ describe multiple issues that may arise and their outcomes>
 1. User selects a "create note" or selects a note(s) to delete
 2. If "create note" is selected, the system will bring up a page that lists parts of the note to add before creating such as name, tag, note location, etc.
 3. User will fill out the information page and click "create note"
-4. System will check if required fields (name and location) are filled and confirm the decision with the user
+4. System will check if the required fields (name and location) are filled and confirm the decision with the user
 5. User selects "yes" to create a note or "no" to cancel
 6. If a note/notes are selected/highlighted by a user, a "delete note(s)" option will be available
 7. User clicks on "delete note(s)"
@@ -126,11 +126,11 @@ describe multiple issues that may arise and their outcomes>
 - **Trigger:** User goes to the settings list
 - **Primary Sequence:**
 1. User selects/goes to the "autosave" section of the settings
-2. User can bring down a list provided by the system to select the time interval for autosaves in minutes (1, 5, 10, etc. or custom)
+2. User can bring down a list provided by the system to select the time interval for autosaves in minutes (1, 5, 10, etc., or custom)
 3. User selects or inputs the time interval for the autosaves
 4. System will set the internal timer for autosaves to the new set time interval
 - **Primary Postconditions:** The system will change the timer to the newly selected/inputted time interval by the user and autosave at every increment of the new time interval
-- **Alternate Sequence:** User wants to revert back to the previous time interval
+- **Alternate Sequence:** User wants to revert to the previous time interval
 1. System will have saved the previous time interval before the most recent change
 2. The user has the option to select "revert to previous time interval"
 3. Selecting the option will prompt the system to change the time interval back to the previous one using the saved time interval.
@@ -159,28 +159,29 @@ describe multiple issues that may arise and their outcomes>
 - **Pre-condition:** User can either be logged in or not logged in
 - **Trigger:** User selects the "create account" option either from the home page or the login page
 - **Primary Sequence:**
-1. User selects "create account" and is taken to the "create account" page
-2. System will have empty boxes for user to fill out information such as email, username, password (along with re-entering password), etc.
+1. User selects "Create account" and is taken to the "Create account" page
+2. System will have empty boxes for the user to fill out information such as email, username, password (along with re-entering password), etc.
 3. User fills out the boxes with their information and selects "create account"
-4. System will check if username is not taken
+4. System will check if the username is not taken
 5. System will send an email to verify the user and prompt them to click the link in the email before creating the account
-6. User gets email and clicking the link will take them to a page that says "Congrats! Your new account has been created. You may return to the home page" and the system will save the new account information to a database containing all existing and newly created accounts on the site
+6. User gets an email and clicking the link will take them to a page that says "Congrats! Your new account has been created. You may return to the home page" and the system will save the new account information to a database containing all existing and newly created accounts on the site
 - **Primary Postconditions:** A new account is created for the user to use to login and use the features of the site
 - **Alternate Sequence:** User inputs a username that already exists in the database
-1. System will check if the inputted username matches with any existing username in the accounts database
-2. If username matches with an already existing username in the databse, system will tell user "username has already been taken" and prompt user to enter a new username
+1. System will check if the inputted username matches any existing username in the accounts database
+2. If the username matches an already existing username in the database, the system will tell the user's username has already been taken" and prompt the user to enter a new username
 
 
 ### 7. Advanced Search Using Regular Expressions (Martin Tran)
 
 - **Pre-condition:**
   - User must have an active account with the webpage.
-  - User must be logged in to their accounts.   
+  - User must be logged in to their accounts.
+  - User should have at least a note with the content inside it.
 - **Trigger:** User clicks on the search bar 
 - **Primary Sequence:**
-1. The user accesses into one of their notes.
-2. The user clicks on search bar to search the word or phrase in their notes.
-3. The user types in the search bar with the word/phrase and add regular expression (optional) into the search bar
+1. The user accesses one of their notes.
+2. The user clicks on the search bar to search for the word or phrase in their notes.
+3. The user types in the search bar with the word/phrase and adds regular expressions (optional) into the search bar
 4. The system will look for the word/phrase that they want inside the note
 5. The system will return the results of searching and redirect to the line of the first result that the system found.
 - **Primary Postconditions:**
@@ -189,29 +190,59 @@ describe multiple issues that may arise and their outcomes>
 - **Alternate Sequence:** 
 1. The user enters a word/phrase that doesn't exist
    a. The system won't show any results of the search
-2. The user enters wrong regular expressions 
+2. The user enters the wrong regular expressions 
   a. The system won't show any results of the search 
 
 
 ### 8. Storing Notes in the Database (Martin Tran)
-- **Pre-condition:** 
-- **Trigger:** 
+- **Pre-condition:**
+   - User must have an active account with the webpage.
+   - User must be logged in to their accounts.  
+- **Trigger:** The user creates new notes
 - **Primary Sequence:**
-1. 
+1. The user logins into their account
+2. The user clicks on "+" (add) to create new notes
+3. The system prompts the user for the name of the new note
+4. The user types in the name they want for the note
+5. The system will create and store a new empty note in the database with the name and the created date
+6. After a specific time, when the user makes some changes in their new note
+7. The user hits the "Save" button
+8. The system will update the new note with the content of the note at the time they hit "Save"
 - **Primary Postconditions:**
-1.
+1. The user has successfully created and stored string notes in the database. They can access, edit, and manage their notes at any time.
 - **Alternate Sequence:** 
-1.
+1. The new note has the same name as their previous notes
+   a. The system will show the error
+   b. The system asks the user to type in new unique names for the note 
 
-### 9. Code Blocks Functionality (Martin Tran)
-- **Pre-condition:** 
-- **Trigger:** 
+### 9. Attach Images inside the Note Functionality (Martin Tran)
+- **Pre-condition:**
+   - User must have an active account with the webpage.
+   - User must be logged in to their accounts.
+   - User should have at least a note.
+- **Trigger:** User clicks the "Add" keyword on top of the note 
 - **Primary Sequence:**
-1. 
+1. The user selects one of the notes they want to edit
+2. The user clicks the "Add" button on the top, then clicks "Images" from the dropdown list
+3. The system prompts the user if they want to upload their image or the image from the online URL
+4. The user can either drop the URL link of the image or upload the image from their local hard drive
+5. The system will load the image from the location and store it in the database
+6. The image will appear on the note
 - **Primary Postconditions:**
-1.
+1. The image is successfully attached to the note and is displayed within the note editor.
+2. The user can save or update the note with the attached image.
+3. The image can be deleted by the user.
 - **Alternate Sequence:** 
-
+1. User Cancels Image Upload:
+  - At step 4, if the user decides not to add an image, they can cancel the process. The system returns to the note editor without attaching an image.
+2. Invalid Image Format:
+  - At step 5, if the user selects an unsupported file format (e.g., not an image file), the system displays an error message and prompts the user to select a valid image file.
+3. Network Error During Upload:
+  - If there is a network error during the image upload process, the system notifies the user and provides an option to retry the upload.
+4. Image Size Limit Exceeded:
+  - If the selected image file exceeds the maximum allowed file size, the system displays an error message and prompts the user to select a smaller image.
+5. URL doesn't exist
+  - The system will show an error, and ask the user to re-enter the link to load.
 
 ### 10. Edit/View Permissions to Others (KHAI TRUONG)
 - **Pre-condition:** User must be logged into their account.
