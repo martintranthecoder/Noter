@@ -36,18 +36,18 @@
 - **Pre-condition:** User is not currently logged in
 - **Trigger:** User goes to the login page through a hyperlink called "login"
 - **Primary Sequence:**
-1. User selects the "login" link on the home page
-2. The system takes the user to a page that prompts the user to input their account information (username/email and password)
-3. The user inputs the information and presses "login" to attempt a login
-4. The system will verify that the account matches an existing account in a database containing all created accounts
+  1. User selects the "login" link on the home page
+  2. The system takes the user to a page that prompts the user to input their account information (username/email and password)
+  3. The user inputs the information and presses "login" to attempt a login
+  4. The system will verify that the account matches an existing account in a database containing all created accounts
 - **Primary Postconditions:** User will be logged in given the system matches the information with an existing account
 - **Alternate Sequence:** User information does not match or doesn't exist
-1. The system will tell the user "Information does not match with an existing account/does not exist"
-2. The user can select the "Forgot password?" option or "Create a new account"
-3. If "Forgot password?" is selected, the system will take the user to a different page that will prompt the user to enter their email then a new password, and re-enter said password
-4. Once confirmed by the user, the system will send an email to the inputted email account that contains a link to verify the user before the change
-5. After the user clicks the link in the email, the system will apply the changes and take the user to a page that says "Password has been changed. You may return to the home page" and has a link back to the home page
-
+  1. The system will tell the user "Information does not match with an existing account/does not exist"
+  2. The user can select the "Forgot password?" option or "Create a new account"
+  3. If "Forgot password?" is selected, the system will take the user to a different page that will prompt the user to enter their email then a new password, and re-enter said password
+  4. Once confirmed by the user, the system will send an email to the inputted email account that contains a link to verify the user before the change
+  5. After the user clicks the link in the email, the system will apply the changes and take the user to a page that says "Password has been changed. You may return to the home page" and has a link back to the home page
+  
 
 ### 2. Ability to Categorize and Organize their Notes (KHAI TRUONG)
 - **Pre-condition:**
