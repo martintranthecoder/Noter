@@ -17,20 +17,15 @@
 
 8. Storing Notes in the Database: Notes and associated metadata (e.g., tags, folders, timestamps) should be stored securely in a database. This ensures persistent storage and retrieval of user-generated content.
 
-9. Code Blocks Functionality: It allows users to insert and format code snippets within their notes
+9.
 
 10. Adding Others as Editors/Viewers: Users can add other people to collaborate or view their notes.
 
 11. Connect with Notion API: Integrates the note-taking app with Notion's API, allowing for seamless interaction with Notion's features and functionalities.
 
-12. requirement ( not sure )
 
 <using the syntax [](images/ui1.png) add images in a folder called images/ and place sketches of your webpages>
 
-### Delegation
-Khai: 
-Hannah: 1, 3, 4, 6
-Martin:
 
 ## Non-functional Requirements
 1. Custom light/dark mode: An option for the user to set the page to have a light background and dark text (light mode) or a dark background and light text (dark mode)
@@ -72,14 +67,14 @@ describe multiple issues that may arise and their outcomes>
 - **Trigger:** User goes to the login page through a hyperlink called "login"
 - **Primary Sequence:**
 1. User selects the "login" link on the home page
-2. System takes the user to a page that prompts the user to input their account information (username/email and password)
+2. The system takes the user to a page that prompts the user to input their account information (username/email and password)
 3. The user inputs the information and presses "login" to attempt a login
-4. System will verify that the account matches an existing account in a database containing all created accounts
+4. The system will verify that the account matches an existing account in a database containing all created accounts
 - **Primary Postconditions:** User will be logged in given the system matches the information with an existing account
 - **Alternate Sequence:** User information does not match or doesn't exist
-1. System will tell the user "Information does not match with an existing account/does not exist"
+1. The system will tell the user "Information does not match with an existing account/does not exist"
 2. The user can select the "Forgot password?" option or "Create a new account"
-3. If "Forgot password?" is selected, the system will take user to a different page that will prompt user to enter email then a new password and re-enter said password
+3. If "Forgot password?" is selected, the system will take the user to a different page that will prompt the user to enter their email then a new password, and re-enter said password
 4. Once confirmed by the user, the system will send an email to the inputted email account that contains a link to verify the user before the change
 5. After the user clicks the link in the email, the system will apply the changes and take the user to a page that says "Password has been changed. You may return to the home page" and has a link back to the home page
 
@@ -178,14 +173,24 @@ describe multiple issues that may arise and their outcomes>
 
 ### 7. Advanced Search Using Regular Expressions (Martin Tran)
 
-- **Pre-condition:** 
-- **Trigger:** 
+- **Pre-condition:**
+  - User must have an active account with the webpage.
+  - User must be logged in to their accounts.   
+- **Trigger:** User clicks on the search bar 
 - **Primary Sequence:**
-1. 
+1. The user accesses into one of their notes.
+2. The user clicks on search bar to search the word or phrase in their notes.
+3. The user types in the search bar with the word/phrase and add regular expression (optional) into the search bar
+4. The system will look for the word/phrase that they want inside the note
+5. The system will return the results of searching and redirect to the line of the first result that the system found.
 - **Primary Postconditions:**
-1.
+1. The user can click on Next/Prev. keywords (in the search bar) to direct themselves to the line of the word/phrase they want to search for.
+2. The user can click "x" to end their search.
 - **Alternate Sequence:** 
-1.
+1. The user enters a word/phrase that doesn't exist
+   a. The system won't show any results of the search
+2. The user enters wrong regular expressions 
+  a. The system won't show any results of the search 
 
 
 ### 8. Storing Notes in the Database (Martin Tran)
