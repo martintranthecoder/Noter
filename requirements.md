@@ -22,8 +22,7 @@
 11. Connect with Notion API: Integrates the note-taking app with Notion's API, allowing for seamless interaction with Notion's features and functionalities.
 
 
-<using the syntax [](images/ui1.png) add images in a folder called images/ and place sketches of your webpages>
-
+[](IMG_7973.JPG)
 
 ## Non-functional Requirements
 1. Custom light/dark mode: An option for the user to set the page to have a light background and dark text (light mode) or a dark background and light text (dark mode)
