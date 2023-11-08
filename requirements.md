@@ -1,9 +1,7 @@
-## <remove all of the example text and notes in < > such as this one>
-
 ## Functional Requirements
 1. Login Page: A secure and user-friendly login interface with fields for username and password, a login button, and links for account recovery and new user registration.
 
-2. Sidebar for Notes: An organized and collapsible sidebar categorizes notes into main folders and subfolders, with a search function for easy navigation.
+2. Ability to Categorize and Organize their Notes (e.g., by topic, date, project)
 
 3. Create/Delete Notes: Features to create new notes with a rich-text editor, tag and categorize them, and options to delete with a safeguard against accidental loss.
 
@@ -33,35 +31,8 @@
 2. Passwords of users will be stored in the Database integrating the MD5 hashing algorithm
 
 <each of the 14 requirements will have a use case associated with it>
-## Use Cases <Add name of who will write (this specific requirement) and implement (in subsequent milestones) the use case below>
-1. Use Case Name (Should match functional requirement name)
-- **Pre-condition:** <can be a list or short description>
-- **Trigger:** <can be a list or short description>
-- **Primary Sequence:**
-1. Ut enim ad minim veniam, quis nostrum e
-2. Et sequi incidunt
-3. Quis aute iure reprehenderit
-4. ...
-5. ...
-6. ...
-7. ...
-8. ...
-9. ...
-10. <Try to stick to a max of 12 steps>
-- **Primary Postconditions:** <can be a list or short description>
-- **Alternate Sequence:** <you can have more than one alternate sequence to
-describe multiple issues that may arise and their outcomes>
-1. Ut enim ad minim veniam, quis nostrum e
-2. Ut enim ad minim veniam, quis nostrum e
-3. ...
-- **Alternate Sequence <optional>:** <you can have more than one alternate sequence to describe multiple issues that may arise>
+## Use Cases 
 
-1. Ut enim ad minim veniam, quis nostrum e
-2. Ut enim ad minim veniam, quis nostrum e
-3. ...
-
-
-## list of real use cases start here (will delete above example once all 14 use cases are finished)
 ### 1. Login Page (Hannah Ta)
 - **Pre-condition:** User is not currently logged in
 - **Trigger:** User goes to the login page through a hyperlink called "login"
@@ -79,26 +50,29 @@ describe multiple issues that may arise and their outcomes>
 5. After the user clicks the link in the email, the system will apply the changes and take the user to a page that says "Password has been changed. You may return to the home page" and has a link back to the home page
 
 
-### 2. Sidebar for Notes (KHAI TRUONG)
+### 2. Ability to Categorize and Organize their Notes (KHAI TRUONG)
 - **Pre-condition:**
-  The user is logged into their account.
-   There are existing notes and folders within the user's account.
-- **Trigger:** The user wants to locate a specific note or view the contents of a folder.
+  - The user is logged into their account.
+  - There are existing notes and folders within the user's account.
+- **Trigger:** The user creates a new folder 
 - **Primary Sequence:**
-1. The user clicks on the sidebar icon to expand it if it's not already visible.
-2. The sidebar displays a list of main folders, each potentially containing subfolders and individual notes.
-3. The user clicks on a folder to expand it, revealing any subfolders or notes.
-4. The user browses through the list and selects a specific note, which opens for viewing or editing.
-5. The user uses the search bar at the top of the sidebar to type in keywords or note titles.
-6. The system dynamically filters and displays matching results as the user types.
-7. From the search results, the user selects a note to open.
-8. After navigating to the desired location, the user clicks the sidebar icon again to collapse it and maximize the workspace.
-- **Primary Postconditions:** The user has successfully located and accessed the desired note or folder.
-                              The sidebar has either remained expanded or collapsed according to the user's preference.
+1. The user creates a new folder
+2. The system prompts the user for the name of the folder
+3. The user can type in the name of the folder according to subjects, topics, dates, or projects
+4. The user can either add existing notes or create new notes in the new folder
+- **Primary Postconditions:**
+  - The user's notes are successfully organized into big folders based on their chosen criterion (e.g., topic, date, project).
+  - The user can easily access and retrieve notes within the designated folders.
 - **Alternate Sequence:** 
-1. If no matching results are found during a search, the system displays a message such as "No matches found" and suggests checking for typos or trying different keywords.
-2. If a user tries to access a folder or note that has been deleted or moved, the system shows an error or notification and refreshes the sidebar to reflect the current structure.
-3. If the sidebar fails to load due to a system error, the application displays an error message and provides the option to reload the sidebar.
+1. User Add New Folder with Existing Names:
+  - The system will show an error and ask the user to re-enter a new unique name 
+2. User Edits Folder Name:
+  - After creating a folder, the user may choose to edit the folder name. The system allows the user to update the folder's name.
+3. User Removes Note from Folders:
+  - At any point, the user can remove a note from a Folder. The system updates the note accordingly.
+4. User Deletes the Folder:
+  - The user will ask if they are sure about their decision
+  - If yes, the system will delete the folder with associating notes inside the folder. 
 
 
 ### 3. Create/Delete Notes (Hannah Ta)
@@ -264,11 +238,26 @@ describe multiple issues that may arise and their outcomes>
 3. The user may revoke or change permissions at any time if they decide to modify access rights.
 
 ### 11. Connect with Notion API (Martin Tran)
-- **Pre-condition:** 
+- **Pre-condition:**
+   - User must have an active account with the webpage.
+   - User must be logged in to their accounts.
 - **Trigger:** 
 - **Primary Sequence:**
-1. 
+1. The user navigates to the settings or configuration section of the project within the project management website.
+2. The user selects the option to connect the project with their Notion account.
+3. The system prompts the user to authorize the connection by logging in to their Notion account (if not already authenticated).
+4. The user enters their Notion credentials and grants the necessary permissions for the project to access their Notion account via the API.
+5. The system validates the user's credentials and permissions with the Notion API.
+6. The system establishes a secure connection with the Notion API.
+7. The user receives a confirmation message that the project is now connected to their Notion account.
+8. Within the project, the user can now perform actions such as importing data from Notion, exporting project details to Notion, or synchronizing project tasks with Notion pages.
 - **Primary Postconditions:**
-1.
+1. The user's project in the project management website is successfully connected to their Notion account through the API.
+2. The user can perform actions related to their project that involve interaction with their Notion account.
 - **Alternate Sequence:** 
-
+1. User Cancels Authorization:
+  - At step 4, if the user decides not to authorize the connection, they can cancel the process. The system returns to the project settings without establishing the connection.
+2. Invalid Credentials:
+  - If the user enters incorrect Notion credentials at step 4, the system displays an error message and prompts the user to re-enter their credentials.
+3. Authorization Denied by User:
+  - If the user declines to grant the necessary permissions at step 4, the system notifies the user and prompts them to authorize the connection again.
