@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Note</title>
+    <!-- Add any required CSS files or styles here -->
+</head>
+<body>
+    <h1>Edit Note</h1>
+
+    <!-- The action URL should point to your route for editing notes -->
+    <form action="{{ url_for('main.edit_note', note_id=note.id) }}" method="post">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" value="{{ note.title }}" required><br><br>
+
+        <label for="content">Content:</label><br>
+        <textarea id="content" name="content" required>{{ note.content }}</textarea><br><br>
+
+        <input type="submit" value="Save Changes">
+    </form>
+
+    <!-- Add a link for going back or to other pages -->
+    <a href="{{ url_for('main.index') }}">Back to Home</a>
+</body>
+</html>
