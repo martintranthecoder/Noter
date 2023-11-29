@@ -94,3 +94,7 @@ def deleteaccount():
 @myapp.route('/hello')
 def hello():
     return "Hello World!"
+
+@myapp.route('/note')
+def create():
+    return render_template('new_note.html')
