@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <h2>Create an account</h2>
+    <h2>Create An Account</h2>
     <form action="/signup" method="post" novalidate>
         {{form.hidden_tag()}}
         <p> 
@@ -36,9 +36,9 @@
             {% endfor %}
         </p>
         <p>
-            {{ form.password2.label }}<br>
-            {{ form.password2(size=32) }}<br>
-            {% for error in form.password2.errors %}
+            {{ form.confirm_password.label }}<br>
+            {{ form.confirm_password(size=32) }}<br>
+            {% for error in form.confirm_password.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
