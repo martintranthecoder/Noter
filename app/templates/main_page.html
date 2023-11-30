@@ -12,9 +12,11 @@
 <body>
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <img src="../static/images/file-earmark-plus.svg" alt="add_file_icon"> 
-        <img src="../static/images/folder-plus.svg" alt="add_folder_icon">
-        <h5>Username's Noter: </h2>
+        <a href="{{ url_for('new_note') }}">
+          <img src="../static/images/file-earmark-plus.svg" alt="add_file_icon">
+        </a>
+        <a href="#"><img src="../static/images/folder-plus.svg" alt="add_folder_icon"></a>
+        <h5>{{ name }}'s Noter: </h5>
         <a href="#">Note 1</a>
         <a href="#">Note 2</a>
         <a href="#">Note 3</a>
@@ -39,7 +41,7 @@
             <div class="collapse" id="account-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                 <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a></li>
-                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sign out</a></li>
+                <li><a href="{{ url_for('logout') }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Log out</a></li>
               </ul>
             </div>
         
@@ -50,7 +52,7 @@
         <button class="openbtn" onclick="openNav()">&#9776; </button>
         <div class="main-container">
             <h2>No file is open</h2>
-            <a href="#"><p>Create new file</p></a>
+            <a href="{{ url_for('new_note') }}"><p>Create new file</p></a>
             <a href="#"><p>Create new folder</p></a>
         </div>
         
@@ -66,7 +68,7 @@
           document.getElementById("mySidebar").style.width = "0";
           document.getElementById("main").style.marginLeft= "0";
         }
-        </script>
+    </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

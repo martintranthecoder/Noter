@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, flash, request
-from app.forms import LoginForm, SignupForm
+from app.forms import LoginForm, SignupForm, AddNoteForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app import myapp, login
 from app import db
@@ -9,7 +9,7 @@ from app.models import User, Note
 @myapp.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('login')) # not sure which page to refer to 
+        return redirect(url_for('main_page')) # not sure which page to refer to 
    
     form = LoginForm()
     
@@ -19,7 +19,7 @@ def login():
             flash("Please make sure you enter correct username and password and try again.")
             return redirect(url_for('login'))
         login_user(user, remember = form.remember_me.data)
-        return redirect(url_for('login')) # missing page to redirect to
+        return redirect(url_for('main_page')) # missing page to redirect to
     
     return render_template('login.html', title='Login', form=form)
 
@@ -40,7 +40,7 @@ def login():
 @myapp.route("/signup", methods=['GET', 'POST'])
 def signup():
     if current_user.is_authenticated:
-        return redirect(url_for('notes'))
+        return redirect(url_for('main_page'))
     
     form = SignupForm()
     
@@ -95,6 +95,18 @@ def deleteaccount():
 def hello():
     return "Hello World!"
 
-@myapp.route('/note')
-def create():
-    return render_template('new_note.html')
+@myapp.route('/main_page')
+@login_required
+def main_page():
+    return render_template('main_page.html', name = current_user.username)
+
+@myapp.route('/new_note', methods=['POST'])
+def new_note():
+    form = AddNoteForm()
+    if form.validate_on_submit():
+        note = Note(title=form.name.data, body=form.body.data, author=current_user)
+        db.session.add(note)
+        db.session.commit()
+        flash('Your note has been created!')
+        return redirect(url_for('main_page'))
+    return render_template('new_note.html', title='New Note', form=form)

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <h1>New Note</h1>
+
+        <form action="/new_note" method="post" >
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.name.label }}<br>
+                {{ form.name(size=32) }}<br>
+                {% for error in form.username.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p> 
+            <p>
+                {{ form.body.label }}<br>
+                {{ form.body(size=32) }}<br>
+                {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %} 
+            </p>
+            <p>{{ form.create() }}</p>
+        </form>
+        <a href="#"><p>Delete note</p></a> <!--insert link to file that will remove note from database-->
+
+{% endblock %}

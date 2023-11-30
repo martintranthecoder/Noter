@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from app.models import User
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 
 class LoginForm(FlaskForm):
@@ -26,3 +26,12 @@ class SignupForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user:
             raise ValidationError("Email already exists! Please use a different email address.")
+        
+#Add Note Form
+class AddNoteForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    body = TextAreaField('Body', validators=[DataRequired()])
+    create = SubmitField('Create')
+    
+    
+    

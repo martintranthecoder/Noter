@@ -32,7 +32,8 @@
 }
 .sidebar button{
     font-size: 19px;
-    padding: 8px 8px 8px 22px;
+    padding: 8px;
+    margin-left: 10px;
     color: #818181;
 }
 .collapse a{
@@ -60,7 +61,7 @@
 
 .sidebar img {
     display: inline-block; /* Display images on the same line */ 
-    padding: 8px 8px 8px 32px;
+    padding: 8px;
 }
 
 .sidebar img:hover{

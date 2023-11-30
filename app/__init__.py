@@ -10,6 +10,9 @@ db = SQLAlchemy(myapp)
 
 login = LoginManager(myapp)
 login.login_view = 'login'
+login.login_message = "Please login to access this page."
+login.refresh_view = 'login'
+login.needs_refresh_message = "Please re-login to access this page."
 
 
 with myapp.app_context():
