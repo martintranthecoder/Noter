@@ -44,34 +44,42 @@ def signup():
     
     form = SignupForm()
     
+    if form.validate_on_submit():
+        user = User(name=form.name.data, username=form.username.data, email=form.email.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash("Congratulations! You have successfully signed up.")
+        return redirect(url_for('login'))
+    
     return render_template('signup.html', title='Signup', form=form)
 
-@myapp.route("/signup", methods=['POST'])
-def signup_post():
-    name = request.form.get('name')
-    username = request.form.get('username')
-    email = request.form.get('email')
-    password = request.form.get('password')
+# @myapp.route("/signup", methods=['POST'])
+# def signup_post():
+#     name = request.form.get('name')
+#     username = request.form.get('username')
+#     email = request.form.get('email')
+#     password = request.form.get('password')
     
-    #Check if username and email already exists
-    username = User.query.filter_by(username=username).first()
-    email = User.query.filter_by(email=email).first()
+#     #Check if username and email already exists
+#     username = User.query.filter_by(username=username).first()
+#     email = User.query.filter_by(email=email).first()
     
-    if username:
-        flash('Username already exists.')
-        return redirect(url_for('signup'))
-    if email:
-        flash('Email already exists.')
-        return redirect(url_for('signup'))
+#     if username:
+#         flash('Username already exists.')
+#         return redirect(url_for('signup'))
+#     if email:
+#         flash('Email already exists.')
+#         return redirect(url_for('signup'))
     
-    #Create new user
-    new_user = User(name=name, username=username, email=email)
-    new_user.set_password(password)
-    db.session.add(new_user)
-    db.session.commit()
-    flash("Congratulations! You have successfully signed up.")
+#     #Create new user
+#     new_user = User(name=name, username=username, email=email)
+#     new_user.set_password(password)
+#     db.session.add(new_user)
+#     db.session.commit()
+#     flash("Congratulations! You have successfully signed up.")
     
-    return redirect(url_for('login'))
+#     return redirect(url_for('login'))
 
 @myapp.route("/logout")
 @login_required

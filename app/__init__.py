@@ -16,8 +16,8 @@ login.needs_refresh_message = "Please re-login to access this page."
 
 
 with myapp.app_context():
-    from app.models import User, Note
+    from app.models import *
     db.create_all()
 
-from app import routes, models
+from app import routes
 

@@ -31,7 +31,7 @@ class SignupForm(FlaskForm):
 class AddNoteForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     body = TextAreaField('Body', validators=[DataRequired()])
-    create = SubmitField('Create')
+    submit = SubmitField('Create')
     
     
     
