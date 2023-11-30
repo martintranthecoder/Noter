@@ -55,16 +55,19 @@
 }
 
 /* When you mouse over the navigation links, change their color */
-.sidebar a:hover {
+.add a:hover {
     color: black;
 }
 
-.sidebar img {
+.add img {
     display: inline-block; /* Display images on the same line */ 
-    padding: 8px;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 50px; /* set the desired width */
+    height: auto; /* maintain the aspect ratio */
 }
 
-.sidebar img:hover{
+.add img:hover{
     opacity: 0.3;
 }
 
@@ -96,11 +99,40 @@
 
 .main-container{
     height: 100vh;
+}
+
+.name-container {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+
+.name-container h1{
+    font-weight: bold;
+    color: #818181;
+}
+
+.add{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.note-display{
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.note-display button{
+    padding-left: 0px;
+}
 
+.note-display a{
+    font-size: 20px;
+   padding: 10px;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */

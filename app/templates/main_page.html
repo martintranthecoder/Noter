@@ -12,27 +12,8 @@
 <body>
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="{{ url_for('new_note') }}">
-          <img src="../static/images/file-earmark-plus.svg" alt="add_file_icon">
-        </a>
-        <a href="#"><img src="../static/images/folder-plus.svg" alt="add_folder_icon"></a>
-        <h5>{{ name }}'s Noter: </h5>
-        <a href="#">Note 1</a>
-        <a href="#">Note 2</a>
-        <a href="#">Note 3</a>
-        <div class="mb-1">
-            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
-              Project 131
-            </button>
-            <div class="collapse" id="home-collapse">
-              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Note_131_1</a></li>
-                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Note_131_2</a></li>
-                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Note_131_3</a></li>
-              </ul>
-            </div>
-        </div>
-
+        <h5> Welcome, {{ name }} </h5>
+      
         <hr>
        
             <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
@@ -51,10 +32,62 @@
       <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; </button>
         <div class="main-container">
-            <h2>No file is open</h2>
-            <a href="{{ url_for('new_note') }}"><p>Create new file</p></a>
-            <a href="#"><p>Create new folder</p></a>
-        </div>
+
+          <div class="name-container">
+            <h1>{{ name }}'s Noter: </h1>
+          </div>
+          <hr>
+
+          <div class="add">
+            <a href="{{ url_for('new_note') }}">
+              <img src="../static/images/file-earmark-plus.svg" alt="add_file_icon">
+            </a>
+            <a href="#"><img src="../static/images/folder-plus.svg" alt="add_folder_icon"></a>
+          </div>
+          
+          <div class="note-display">
+            <div class= "container mt-3">
+              <table class="table">
+                  {% if user.notes|length ==0  %}
+                  <div class="alert alert-danger" role="alert">
+                      There is no note, ADD your first note now!!
+                  </div>
+                  {% else %}
+          
+                  <thead class="table-dark">
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for note in user.notes %}   
+                      <tr>
+                        <td>{{note.title}}</td>
+                        <td>
+                          <!-- <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-success btn-sm mx-2"><a href="/update/{{note.id}}">update</a></button> -->
+                          <a href="/update/{{note.id}}" type="button" class="btn btn-success btn-sm mx-2">View</button> <!--update the link-->
+                          <a href="/delete/{{note.id}}" type="button" class="btn btn-danger btn-sm mx-2">Delete</button> <!--update the link-->
+                      </td>
+                      </tr>
+                      {% endfor %}
+                      {% endif %}
+                    </tbody>
+                </table>
+          </div>      
+            <!-- not need rn-->
+            <!-- <div class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0  collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+                  Project 131
+                </button>
+                <div class="collapse" id="home-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Note_131_1</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Note_131_2</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Note_131_3</a></li>
+                  </ul>
+                </div>
+          </div> -->
         
     </div>
 
