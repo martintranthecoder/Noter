@@ -19,8 +19,7 @@
 
 10. Adding Others as Editors/Viewers: Users can add other people to collaborate or view their notes.
 
-11. Connect with Notion API: Integrates the note-taking app with Notion's API, allowing for seamless interaction with Notion's features and functionalities.
-
+11. User Logout: Users can log out of their account.
 
 [](IMG_7973.JPG)
 
@@ -236,27 +235,21 @@
   2. If a collaborator does not accept the invitation within a specific timeframe, the system may remind the user to follow up or resend the invitation.
   3. The user may revoke or change permissions at any time if they decide to modify access rights.
 
-### 11. Connect with Notion API (Martin Tran)
+### 11. User Logout (Martin Tran)
 - **Pre-condition:**
    - User must have an active account with the webpage.
    - User must be logged in to their accounts.
-- **Trigger:** The user wants to connect with their Notion account
+- **Trigger:** The user wants to log out of their account
 - **Primary Sequence:**
-  1. The user navigates to the settings or configuration section of the project within the project management website.
-  2. The user selects the option to connect the project with their Notion account.
-  3. The system prompts the user to authorize the connection by logging in to their Notion account (if not already authenticated).
-  4. The user enters their Notion credentials and grants the necessary permissions for the project to access their Notion account via the API.
-  5. The system validates the user's credentials and permissions with the Notion API.
-  6. The system establishes a secure connection with the Notion API.
-  7. The user receives a confirmation message that the project is now connected to their Notion account.
-  8. Within the project, the user can now perform actions such as importing data from Notion, exporting project details to Notion, or synchronizing project tasks with Notion pages.
+  1. The user decides to log out of their account.
+  2. The user navigates to open the sidebar of the main webpage.
+  3. The user clicks on Account to see the selections.
+  4. The user clicks on Log Out.
+  5. The system will automatically log out of the current user account.
+  6. The webpage returns to the Login page.
 - **Primary Postconditions:**
-  1. The user's project in the project management website is successfully connected to their Notion account through the API.
-  2. The user can perform actions related to their project that involve interaction with their Notion account.
+  1. The user is logged out of their account, and their session is terminated.
+  2. The webpage shows a message that you logged out successfully.
 - **Alternate Sequence:** 
-  1. User Cancels Authorization:
-    - At step 4, if the user decides not to authorize the connection, they can cancel the process. The system returns to the project settings without establishing the connection.
-  2. Invalid Credentials:
-    - If the user enters incorrect Notion credentials at step 4, the system displays an error message and prompts the user to re-enter their credentials.
-  3. Authorization Denied by User:
-    - If the user declines to grant the necessary permissions at step 4, the system notifies the user and prompts them to authorize the connection again.
+  1. User Cancels Logout:
+    - The user closes the sidebar to continue their notes
