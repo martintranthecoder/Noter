@@ -108,13 +108,20 @@ def hello():
 def main_page():
     return render_template('main_page.html', name = current_user.username)
 
-@myapp.route('/new_note', methods=['POST'])
+@myapp.route('/new_note', methods=['GET','POST'])
 def new_note():
     form = AddNoteForm()
     if form.validate_on_submit():
         note = Note(title=form.name.data, body=form.body.data, author=current_user)
         db.session.add(note)
         db.session.commit()
-        flash('Your note has been created!')
+        
         return redirect(url_for('main_page'))
     return render_template('new_note.html', title='New Note', form=form)
+
+@myapp.route('/<int:note_id>/rm', methods=['POST'])
+def delete_note(note_id):
+    rnote = Notes.query.first_or_404(note_id)
+    db.session.delete(rnote)
+    db.session.commit()
+    return redirect(url_for('main_page'))
