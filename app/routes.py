@@ -5,6 +5,7 @@ from app import myapp, login
 from app import db
 from app.models import User, Note
 
+# login page
 @myapp.route("/")
 @myapp.route("/login", methods=['GET', 'POST'])
 def login():
@@ -37,6 +38,7 @@ def login():
 #         flash('Please make sure you enter correct username and password and try again.')
 #         return redirect(url_for('login'))
 
+#sign up page
 @myapp.route("/signup", methods=['GET', 'POST'])
 def signup():
     if current_user.is_authenticated:
@@ -81,6 +83,7 @@ def signup():
     
 #     return redirect(url_for('login'))
 
+#logout function
 @myapp.route("/logout")
 @login_required
 def logout():
@@ -88,6 +91,7 @@ def logout():
     flash("You have successfully logged out.")
     return redirect(url_for('login'))
 
+#delete account function
 @myapp.route('/deleteaccount')
 @login_required
 def deleteaccount():
@@ -100,10 +104,7 @@ def deleteaccount():
     db.session.commit()
     return redirect(url_for('login'))
 
-@myapp.route('/hello')
-def hello():
-    return "Hello World!"
-
+#main page
 @myapp.route('/main_page')
 @login_required
 def main_page():
@@ -111,6 +112,7 @@ def main_page():
     length = len(all_notes)
     return render_template('main_page.html', name = current_user.username, user = current_user, notes = all_notes, length = length)
 
+#create new note function
 @myapp.route('/new_note', methods=['GET','POST'])
 def new_note():
     form = AddNoteForm()
@@ -122,6 +124,7 @@ def new_note():
         return redirect(url_for('main_page'))
     return render_template('new_note.html', title='New Note', form=form)
 
+#delete note function
 @myapp.route('/delete/<int:note_id>', methods=['GET','POST'])
 def delete_note(note_id):
     note = Note.query.filter_by(id=note_id).first()
@@ -131,6 +134,7 @@ def delete_note(note_id):
         flash("Note deleted.")
     return render_template('main_page.html', name = current_user.username, user = current_user, notes = Note.query.filter_by(user_id=current_user.id).all(), length = len(Note.query.filter_by(user_id=current_user.id).all()))
 
+#view note function
 @myapp.route('/view/<int:note_id>', methods=['GET','POST'])
 def view_note(note_id):
     note = Note.query.filter_by(id=note_id).first()
