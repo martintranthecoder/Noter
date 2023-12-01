@@ -5,7 +5,7 @@
     <br>
     <div class="shadow p-3 mb-5 bg-body rounded">
         <h2>Name: {{ note.title }}</h2>
-        <p>{{ note.body }}</p>
+        <p>{{ note.body|safe }}</p>
         <br>
         <a href="{{ url_for('main_page') }}" class="btn btn-secondary">Back</a>      
     </div>

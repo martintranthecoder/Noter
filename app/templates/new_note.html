@@ -21,12 +21,13 @@
                 {{ form.name(size=32, class="form-control") }} 
                 <br>
             
-            
                 {{ form.body.label(class="form-label") }} <br>
                 {{ form.body(class="form-control", rows="10") }}
             <br>
             {{ form.submit(class="btn btn-secondary") }}
         </form>
+        {{ ckeditor.load() }}
+        {{ ckeditor.config(name="body") }}
 </div>
 
 {% else %}
