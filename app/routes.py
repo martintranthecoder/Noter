@@ -8,8 +8,8 @@ from app.models import User, Note
 @myapp.route("/")
 @myapp.route("/login", methods=['GET', 'POST'])
 def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('main_page')) # not sure which page to refer to 
+    # if current_user.is_authenticated:
+    #     return redirect(url_for('main_page')) # not sure which page to refer to 
    
     form = LoginForm()
     
@@ -107,22 +107,31 @@ def hello():
 @myapp.route('/main_page')
 @login_required
 def main_page():
-    return render_template('main_page.html', name = current_user.username)
+    all_notes = Note.query.filter_by(user_id=current_user.id).all()
+    length = len(all_notes)
+    return render_template('main_page.html', name = current_user.username, user = current_user, notes = all_notes, length = length)
 
 @myapp.route('/new_note', methods=['GET','POST'])
 def new_note():
     form = AddNoteForm()
     if form.validate_on_submit():
-        note = Note(title=form.name.data, body=form.body.data, author=current_user)
+        note = Note(title=form.name.data, body=form.body.data, user_id=current_user.id)
         db.session.add(note)
         db.session.commit()
         
         return redirect(url_for('main_page'))
     return render_template('new_note.html', title='New Note', form=form)
 
-@myapp.route('/<int:note_id>/rm', methods=['POST'])
+@myapp.route('/delete/<int:note_id>', methods=['GET','POST'])
 def delete_note(note_id):
-    rnote = Notes.query.first_or_404(note_id)
-    db.session.delete(rnote)
-    db.session.commit()
-    return redirect(url_for('main_page'))
+    note = Note.query.filter_by(id=note_id).first()
+    if note:
+        db.session.delete(note)
+        db.session.commit()
+        flash("Note deleted.")
+    return render_template('main_page.html', name = current_user.username, user = current_user, notes = Note.query.filter_by(user_id=current_user.id).all(), length = len(Note.query.filter_by(user_id=current_user.id).all()))
+
+@myapp.route('/view/<int:note_id>', methods=['GET','POST'])
+def view_note(note_id):
+    note = Note.query.filter_by(id=note_id).first()
+    return render_template('note_view.html', note=note)
