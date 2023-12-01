@@ -32,3 +32,4 @@
 ### 2023-11-29 at 8 p.m
 - Martin, Hannah
 - We talked about our confusions on the functional requirements
+- We decided to submit the Milestone 2 late because don't have enough time to finish all 6 requirements
