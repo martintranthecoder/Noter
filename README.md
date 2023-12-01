@@ -55,22 +55,22 @@ flask run
 ~~~
 
 # Recent Implementation
-1. A simple user Sign Up page for user to create an account with our project to ensure the security of your notes. (**Martin Tran**)
-![[sign_up.png]]
+1. A simple user Sign Up page for user to create an account with our project to ensure the security of your notes. (**Martin Tran**) <br>
+<img src="app/static/images/sign_up.png" alt="Sign Up Page" width="858" height="800">
 
-2. A simple Log In page after you registered an Account with us. (**Martin Tran**)
-![[]]
+2. A simple Log In page after you registered an Account with us. (**Martin Tran**)<br>
+<img src="app/static/images/log_in.png" alt="Log In Page" width="858" height="800">
 
-3. Create/Delete Notes (**Hannah Ta & Martin Tran**)
-![[]]
+3. Create/Delete Notes (**Hannah Ta & Martin Tran**) <br>
+<img src="app/static/images/note_delete.png" alt="Main Page" width="858" height="800">
 
-4. Storing Notes in the Database, so users can retrieve the notes they created whenever they want (**Hannah Ta & Khai Truong**)
+4. Storing Notes in the Database, so users can retrieve the notes they created whenever they want (**Hannah Ta & Khai Truong**) 
 
-5. Rich Text Editor when users create new note (**Khai Truong & Martin Tran**)
-![[]]
+5. Rich Text Editor when users create new note (**Khai Truong & Martin Tran**) <br>
+<img src="app/static/images/create_note.png" alt="Note Creation Page" width="858" height="800">
 
-6. A Log Out Function for you to log out of your note page (**Martin Tran**)
-![[]]
+6. A Log Out Function for you to log out of your note page (**Martin Tran**) <br>
+<img src="app/static/images/logout.png" alt="Log Out Sidebar" width="858" height="800">
 
 
 
