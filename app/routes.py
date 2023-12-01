@@ -41,8 +41,6 @@ def login():
 #sign up page
 @myapp.route("/signup", methods=['GET', 'POST'])
 def signup():
-    if current_user.is_authenticated:
-        return redirect(url_for('main_page'))
     
     form = SignupForm()
     

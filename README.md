@@ -14,17 +14,17 @@ Noter is a simple web-based note taking app for users. We uses Flask with Flask 
 # Packages:
  | Package Name           | Version      | 
   | ----------------------| -------------| 
-  | Flask                 | ^3.0.0       | 
-  | Flask-Login           | ^0.6.3       | 
-  | Flask-SQLAlchemy      | ^2.0.23      | 
-  | Flask-WTF             | ^1.2.1       | 
-  | Flask-CKEditor        | ^0.5.1       | 
-  | email-validator       | ^2.1.0.post1 | 
+  | Flask                 | 3.0.0       | 
+  | Flask-Login           | 0.6.3       | 
+  | Flask-SQLAlchemy      | 2.0.23      | 
+  | Flask-WTF             | 1.2.1       | 
+  | Flask-CKEditor        | 0.5.1       | 
+  | email-validator       | 2.1.0.post1 | 
  
 # Run Locally
 (Before using our project app, please make sure you downloaded the recent versions of Python)
 
-1. CLone our GitHub repository 
+1. Clone our GitHub repository 
 ~~~bash
 git clone https://github.com/martintranthecoder/Noter.git
 ~~~
@@ -55,17 +55,22 @@ flask run
 ~~~
 
 # Recent Implementation
-1. A simple user Sig nUp page for user to create an account with our project to ensure the security of your notes. (**Martin Tran**)
+1. A simple user Sign Up page for user to create an account with our project to ensure the security of your notes. (**Martin Tran**)
+![[sign_up.png]]
 
 2. A simple Log In page after you registered an Account with us. (**Martin Tran**)
+![[]]
 
 3. Create/Delete Notes (**Hannah Ta & Martin Tran**)
+![[]]
 
 4. Storing Notes in the Database, so users can retrieve the notes they created whenever they want (**Hannah Ta & Khai Truong**)
 
 5. Rich Text Editor when users create new note (**Khai Truong & Martin Tran**)
+![[]]
 
 6. A Log Out Function for you to log out of your note page (**Martin Tran**)
+![[]]
 
 
 
