@@ -6,7 +6,7 @@
 - Khai Truong (@tqkhai260595)
 
 # Project Description:
-Noter is a simple web-based note taking app for users. We uses Flask with Flask extensions such as Flask-Login, FLask-SQLAlchemy, etc. to wrtite this app. Noter provide the users with the solution to taking the note in their daily activities, classes, or works. In this app, you will be able to create notes, delete the notes and viewing the notes with rich text editor.
+Noter is a simple web-based note-taking app for users. We use Flask with Flask extensions such as Flask-Login, FLask-SQLAlchemy, etc. to write this app. Noter provide the users with a solution to taking note in their daily activities, classes, or work. In this app, you will be able to create notes, delete the notes, and view the notes with a rich text editor.
 
 # Functional Requirements: 
 (please check out our file named "[requirements.md](https://github.com/martintranthecoder/Noter/blob/main/requirements.md)")
@@ -46,7 +46,7 @@ source venv/bin/activate
 
 5. Install Packages
 ~~~bash
-pip install flask flask-sqlalchemy flask-ckeditor email-validator Werkzeug==3.0.1 Flask-Login==0.6.3 Flask-WTF==1.2.1
+pip install flask flask_sqlalchemy flask-ckeditor email-validator Werkzeug==3.0.1 Flask-Login==0.6.3 Flask-WTF==1.2.1
 ~~~
 
 6. Start the server
