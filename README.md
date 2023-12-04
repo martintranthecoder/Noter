@@ -46,7 +46,7 @@ source venv/bin/activate
 
 5. Install Packages
 ~~~bash
-pip install flask flask-login flask-sqlalchemy flask-wtf flask-ckeditor email-validator
+pip install flask flask-sqlalchemy flask-ckeditor email-validator Werkzeug==3.0.1 Flask-Login==0.6.3 Flask-WTF==1.2.1
 ~~~
 
 6. Start the server
