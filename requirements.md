@@ -1,32 +1,32 @@
 ## Functional Requirements
 1. Login Page: A secure and user-friendly login interface with fields for username and password, a login button, and links for account recovery and new user registration.
 
-2. Ability to Categorize and Organize their Notes (e.g., by topic, date, project)
+2. Ability to Create Folders for their Notes (e.g., by topic, date, project)
 
 3. Create/Delete Notes: Features to create new notes with a rich-text editor, tag and categorize them, and options to delete with a safeguard against accidental loss.
 
-4. Autosave Functionality: An autosave feature with customizable intervals set by the user to ensure that all changes in the notes are saved automatically and frequently.
+4. Password Recovery Function: when users forget their password, they can recover by changing to a new password.
 
-5. Editing Notes: A feature that allows the user to add text in notes and edit the text in ways like highlighting, striking, or bolding the text.
+5. Rich Text Editor: A feature that allows the user to add text in notes and edit the text in ways like highlighting, striking, or bolding the text.
 
 6. Create Account Page: A page for the user to create a new account and confirm with the system for verification and security purposes before the system creates the account.
 
-7. Advanced Search Using Regular Expressions: A functionality that helps users to search for words and allows users to perform complex pattern matching.
+7. Advanced Search Using Regular Expressions: A functionality that helps users search for words and perform complex pattern matching.
 
 8. Storing Notes in the Database: Notes and associated metadata (e.g., tags, folders, timestamps) should be stored securely in a database. This ensures persistent storage and retrieval of user-generated content.
 
 9. Attach Images inside the Note Functionality: Images can be embedded inside the users' notes.
 
-10. Adding Others as Editors/Viewers: Users can add other people to collaborate or view their notes.
+10. Editing Notes: users can edit their notes after they create the notes.
 
 11. User Logout: Users can log out of their account.
 
 [](IMG_7973.JPG)
 
 ## Non-functional Requirements
-1. Custom light/dark mode: An option for the user to set the page to have a light background and dark text (light mode) or a dark background and light text (dark mode)
+1. THe website is only expected to work better on Google Chrome.
 
-2. Passwords of users will be stored in the Database integrating the MD5 hashing algorithm
+2. The passwords of users will be stored in the Database integrating the hashing algorithm
 
 <each of the 14 requirements will have a use case associated with it>
 ## Use Cases 
@@ -48,7 +48,7 @@
   5. After the user clicks the link in the email, the system will apply the changes and take the user to a page that says "Password has been changed. You may return to the home page" and has a link back to the home page
   
 
-### 2. Ability to Categorize and Organize their Notes (KHAI TRUONG)
+### 2. Ability to Create Folders for their Notes (KHAI TRUONG)
 - **Pre-condition:**
   - The user is logged into their account.
   - There are existing notes and folders within the user's account.
@@ -65,7 +65,7 @@
   1. User Add New Folder with Existing Names:
     - The system will show an error and ask the user to re-enter a new unique name 
   2. User Edits Folder Name:
-    - After creating a folder, the user may choose to edit the folder name. The system allows the user to update the folder's name.
+    - After creating a folder, the user may edit the folder name. The system allows the user to update the folder's name.
   3. User Removes Note from Folders:
     - At any point, the user can remove a note from a Folder. The system updates the note accordingly.
   4. User Deletes the Folder:
@@ -93,22 +93,17 @@
   2. System will remove the user from the list of editors/readers on the note
 
 
-### 4. Autosave Functionality (Hannah Ta)
-- **Pre-condition:** User must be logged in
-- **Trigger:** User goes to the settings list
+### 4. Password Recovery (Hannah Ta)
+- **Pre-condition:** 
+- **Trigger:** 
 - **Primary Sequence:**
-  1. User selects/goes to the "autosave" section of the settings
-  2. User can bring down a list provided by the system to select the time interval for autosaves in minutes (1, 5, 10, etc., or custom)
-  3. User selects or inputs the time interval for the autosaves
-  4. System will set the internal timer for autosaves to the new set time interval
-- **Primary Postconditions:** The system will change the timer to the newly selected/inputted time interval by the user and autosave at every increment of the new time interval
-- **Alternate Sequence:** User wants to revert to the previous time interval
-  1. System will have saved the previous time interval before the most recent change
-  2. The user has the option to select "revert to previous time interval"
-  3. Selecting the option will prompt the system to change the time interval back to the previous one using the saved time interval.
+  1. 
+- **Primary Postconditions:** 
+- **Alternate Sequence:** 
+  1. 
 
 
-### 5. Editing Notes (KHAI TRUONG)
+### 5. Rich Text Editor (KHAI TRUONG)
 - **Pre-condition:** The user is logged into their account and has permission to edit the note.
                      The note that the user wishes to edit is accessible.
 - **Trigger:** The user decides to edit the text within a note.
@@ -117,7 +112,7 @@
   2. The user clicks on the 'Edit' button or directly clicks into the text area of the note to start editing.
   3. The user adds new text, deletes existing text, or modifies it as needed.
   4. To highlight, the user selects the text and clicks the 'Highlight' button.
-  5. To strike through, the user selects the text and clicks the 'Underline' button.
+  5. To strike-through, the user selects the text and clicks the 'Underline' button.
   6. To make text bold, the user selects the text and clicks the 'Bold' button or uses the keyboard shortcut.
 - **Primary Postconditions:** The user's changes are saved and reflected in the note.
                               The note displays the updated content with the applied formatting.
@@ -216,25 +211,14 @@
   5. URL doesn't exist
     - The system will show an error, and ask the user to re-enter the link to load.
 
-### 10. Edit/View Permissions to Others (KHAI TRUONG)
-- **Pre-condition:** User must be logged into their account.
-                    The note has already been created and saved in the user's account.
-                    The user has permission to set access rights for the note.
-- **Trigger:** The user adds collaborators to a note for viewing or editing.
+### 10. Edit Notes Function (KHAI TRUONG)
+- **Pre-condition:** 
+- **Trigger:** 
 - **Primary Sequence:** 
-  1. The user opens the note they wish to share and clicks on the 'Share' or 'Collaborate' button.
-  2. The user enters the email addresses or usernames of the individuals they want to collaborate with.
-  3. For each collaborator, the user sets the permission level: 'Can Edit' or 'Can View'.
-  4. The user clicks the 'Send Invites' button to send collaboration invites to the chosen individuals.
-  5. The system sends the invitations and displays a confirmation message to the user.
-  6. Collaborators receive the invitation and must accept it to gain access to the note.
-- **Primary Postconditions:** The invited collaborators have received their invitations.
-                              Once accepted, collaborators have the appropriate access rights set by the user.
+  
+- **Primary Postconditions:** 
 - **Alternate Sequence:** 
-  1. If the system cannot send invitations (due to an invalid email address, system error, etc.), it informs the user of the failure and provides an option to try again.
-  2. If a collaborator does not accept the invitation within a specific timeframe, the system may remind the user to follow up or resend the invitation.
-  3. The user may revoke or change permissions at any time if they decide to modify access rights.
-
+  
 ### 11. User Logout (Martin Tran)
 - **Pre-condition:**
    - User must have an active account with the webpage.
