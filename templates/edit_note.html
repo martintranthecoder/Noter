@@ -29,6 +29,28 @@
         {{ ckeditor.load() }}
         {{ ckeditor.config(name="body") }}
 </div>
+#######################################
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <form action="{{ url_for('update_note', note_id=note.id) }}" method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        
+        {{ form.name.label(class="form-label") }} <br>
+        {{ form.name(size=32, class="form-control", value=note.title) }} 
+        <br>
+        
+        {{ form.body.label(class="form-label") }} <br>
+        {{ form.body(class="form-control", rows="10", value=note.body) }}
+        <br>
+        
+        <!-- Add image upload field -->
+        <label for="image">Upload Image:</label>
+        <input type="file" name="image" id="image" accept="image/*">
+        <br><br>
+
+        {{ form.submit(class="btn btn-secondary") }}
+    </form>
+    {{ ckeditor.load() }}
+    {{ ckeditor.config(name="body") }}
 
 {% else %}
 <h2>Must Be Logged In...</h2>
