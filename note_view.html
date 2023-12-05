@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for message in get_flashed_messages() %}
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+	  {{ message }}
+	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+{% endfor %}
+
+{% if current_user.is_authenticated %}
+
+<div class="shadow p-3 mb-5 bg-body rounded">
+
+        <form action="/edit/{{note.id}}" method="post" >
+            {{ form.hidden_tag() }}
+            
+                {{ form.name.label(class="form-label") }} <br>
+                {{ form.name(size=32, class="form-control", render_kw={"placeholder":"note.title"}) }} 
+                <br>
+            
+                {{ form.body.label(class="form-label") }} <br>
+                {{ form.body(class="form-control", rows="10",render_kw={"placeholder":"note.body"}) }}
+            <br>
+            {{ form.submit(class="btn btn-secondary") }}
+        </form>
+        {{ ckeditor.load() }}
+        {{ ckeditor.config(name="body") }}
+
+        <a href="/main_page" type="button" class="btn btn-success btn-sm mx-2">Return to Home</button>
+</div>
+
+{% else %}
+<h2>Must Be Logged In...</h2>
+<p>Sorry, You must be logged in to access this page!</p>
+
+<a href="{{ url_for('login') }}">Login Here</a>
+
+{% endif %}
+
+{% endblock %}
