@@ -11,6 +11,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique = True)
     password_hash = db.Column(db.String(128))
     notes = db.relationship('Note', backref='author', lazy='dynamic') 
+    folders = db.relationship('Folder', backref='author', lazy='dynamic')
     
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -31,6 +32,16 @@ class Note(db.Model):
     title = db.Column(db.String(64), index=True)
     body = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    folder_id = db.Column(db.Integer, db.ForeignKey('folder.id'), nullable=True)
     
     def __repr__(self):
         return f'<Note {self.id}: {self.title}>'
+
+class Folder(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(64), index=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    notes = db.relationship('Note', backref='folder', lazy='dynamic')
+    
+    def __repr__(self):
+        return f'<Folder {self.id}: {self.name}>'

@@ -1,9 +1,9 @@
 from flask import render_template, redirect, url_for, flash, request
-from app.forms import LoginForm, SignupForm, AddNoteForm
+from app.forms import LoginForm, SignupForm, AddNoteForm, CreateFolderForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app import myapp, login
 from app import db
-from app.models import User, Note
+from app.models import User, Note, Folder
 
 # login page
 @myapp.route("/")
@@ -103,12 +103,25 @@ def deleteaccount():
     return redirect(url_for('login'))
 
 #main page
-@myapp.route('/main_page')
+@myapp.route('/main_page', methods=['GET','POST'])
 @login_required
 def main_page():
-    all_notes = Note.query.filter_by(user_id=current_user.id).all()
+    all_notes = Note.query.filter_by(user_id=current_user.id, folder_id = None).all()
     length = len(all_notes)
-    return render_template('main_page.html', name = current_user.username, user = current_user, notes = all_notes, length = length)
+    all_folders = Folder.query.filter_by(user_id=current_user.id).all()
+    length1 = len(all_folders)
+    form = CreateFolderForm()
+    if form.validate_on_submit():
+        folder = Folder(title=form.name.data, user_id=current_user.id)
+        db.session.add(folder)
+        db.session.commit()
+        
+        return render_template('main_page.html', name = current_user.username, user = current_user, 
+                               notes = all_notes, length = length, 
+                               folders = Folder.query.filter_by(user_id=current_user.id).all(), 
+                               length1 = len(Folder.query.filter_by(user_id=current_user.id).all()), 
+                               form = form)
+    return render_template('main_page.html', name = current_user.username, user = current_user, notes = all_notes, length = length, folders = all_folders, length1 = length1, form = form)
 
 #create new note function
 @myapp.route('/new_note', methods=['GET','POST'])
@@ -122,18 +135,59 @@ def new_note():
         return redirect(url_for('main_page'))
     return render_template('new_note.html', title='New Note', form=form)
 
+@myapp.route('/new_note_folder/<int:folder_id>', methods=['GET','POST'])
+def new_note_folder(folder_id):
+    form = AddNoteForm()
+    if form.validate_on_submit():
+        note = Note(title=form.name.data, body=form.body.data, user_id = current_user.id, folder_id = folder_id)
+        db.session.add(note)
+        db.session.commit()
+        
+        return redirect("/folder_view/"+str(folder_id))
+    return render_template('new_note_folder.html', title='New Note', form=form, folder_id=folder_id)
+
 #delete note function
 @myapp.route('/delete/<int:note_id>', methods=['GET','POST'])
 def delete_note(note_id):
+    form = CreateFolderForm()
+    all_folders = Folder.query.filter_by(user_id=current_user.id).all()
+    length1 = len(all_folders)
     note = Note.query.filter_by(id=note_id).first()
     if note:
         db.session.delete(note)
         db.session.commit()
         flash("Note deleted.")
-    return render_template('main_page.html', name = current_user.username, user = current_user, notes = Note.query.filter_by(user_id=current_user.id).all(), length = len(Note.query.filter_by(user_id=current_user.id).all()))
+    return render_template('main_page.html', name = current_user.username, user = current_user, 
+                           notes = Note.query.filter_by(user_id=current_user.id).all(), 
+                           length = len(Note.query.filter_by(user_id=current_user.id).all()),
+                           folders = all_folders, length1 = length1, form = form)
 
 #view note function
 @myapp.route('/view/<int:note_id>', methods=['GET','POST'])
 def view_note(note_id):
     note = Note.query.filter_by(id=note_id).first()
     return render_template('note_view.html', note=note)
+
+#view folder function
+@myapp.route('/folder_view/<int:folder_id>', methods=['GET','POST'])
+def form_view(folder_id):
+    folder = Folder.query.filter_by(user_id = current_user.id, id=folder_id).first()
+    notes = Note.query.filter_by(user_id = current_user.id, folder_id=folder_id).all()
+    length = len(notes)
+    return render_template('folder_view.html', folder=folder, notes=notes, length=length)
+
+#delete folder function 
+@myapp.route('/delete_folder/<int:folder_id>', methods=['GET','POST'])
+def delete_folder(folder_id):
+    form = CreateFolderForm()
+    folder = Folder.query.filter_by(id=folder_id).first()
+    if folder:
+        db.session.delete(folder)
+        db.session.commit()
+        flash("Folder deleted.")
+    all_folders = Folder.query.filter_by(user_id=current_user.id).all()
+    length1 = len(all_folders)
+    return render_template('main_page.html', name = current_user.username, user = current_user, 
+                           notes = Note.query.filter_by(user_id=current_user.id).all(), 
+                           length = len(Note.query.filter_by(user_id=current_user.id).all()),
+                           folders = all_folders, length1 = length1, form = form)
