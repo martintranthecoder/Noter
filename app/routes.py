@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, flash, request
-from app.forms import LoginForm, SignupForm, AddNoteForm
+from app.forms import LoginForm, SignupForm, AddNoteForm, SaveNoteForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app import myapp, login
 from app import db
@@ -133,7 +133,15 @@ def delete_note(note_id):
     return render_template('main_page.html', name = current_user.username, user = current_user, notes = Note.query.filter_by(user_id=current_user.id).all(), length = len(Note.query.filter_by(user_id=current_user.id).all()))
 
 #view note function
-@myapp.route('/view/<int:note_id>', methods=['GET','POST'])
+@myapp.route('/edit/<int:note_id>', methods=['GET','POST'])
 def view_note(note_id):
     note = Note.query.filter_by(id=note_id).first()
-    return render_template('note_view.html', note=note)
+    form = SaveNoteForm(name=note.title, body=note.body)
+    
+    if form.validate_on_submit():
+        db.session.delete(note)
+        note = Note(title=form.name.data, body=form.body.data, id=note_id)
+        db.session.add(note)
+        db.session.commit()
+
+    return render_template('note_view.html', name=note.title, body=note.body, note=note, form=form)

@@ -3,6 +3,7 @@ from app.models import User
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from flask_ckeditor import CKEditorField
+import time
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -34,5 +35,8 @@ class AddNoteForm(FlaskForm):
     body = CKEditorField('Body', validators=[DataRequired()])
     submit = SubmitField('Create')
     
-    
-    
+class SaveNoteForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    body = CKEditorField('Body', validators=[DataRequired()])
+    time = time.time()
+    submit = SubmitField('Save')
