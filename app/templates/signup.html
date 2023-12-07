@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <title>Sign Up</title>
-</head>
-
-<body>
+{% block content %}
     <h2>Create An Account</h2>
     <form action="/signup" method="post" novalidate>
         {{form.hidden_tag()}}
@@ -46,6 +41,4 @@
         <p>{{form.submit()}}</p>
     </form>
     <p>Already have an account? <a href="{{ url_for('login') }}">Sign in</a>.</p>
-</body>
-
-</html>
+{% endblock %}

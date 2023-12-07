@@ -1,54 +1,54 @@
 ## Functional Requirements
 1. Login Page: A secure and user-friendly login interface with fields for username and password, a login button, and links for account recovery and new user registration.
 
-2. Ability to Categorize and Organize their Notes (e.g., by topic, date, project)
+2. Ability to Create Folders for their Notes (e.g., by topic, date, project)
 
 3. Create/Delete Notes: Features to create new notes with a rich-text editor, tag and categorize them, and options to delete with a safeguard against accidental loss.
 
-4. Autosave Functionality: An autosave feature with customizable intervals set by the user to ensure that all changes in the notes are saved automatically and frequently.
+4. Password Recovery Function: when users forget their password, they can recover by changing to a new password.
 
-5. Editing Notes: A feature that allows the user to add text in notes and edit the text in ways like highlighting, striking, or bolding the text.
+5. Rich Text Editor: A feature that allows the user to add text in notes and edit the text in ways like highlighting, striking, or bolding the text.
 
 6. Create Account Page: A page for the user to create a new account and confirm with the system for verification and security purposes before the system creates the account.
 
-7. Advanced Search Using Regular Expressions: A functionality that helps users to search for words and allows users to perform complex pattern matching.
+7. Advanced Search Using Regular Expressions: A functionality that helps users search for words and perform complex pattern matching.
 
 8. Storing Notes in the Database: Notes and associated metadata (e.g., tags, folders, timestamps) should be stored securely in a database. This ensures persistent storage and retrieval of user-generated content.
 
 9. Attach Images inside the Note Functionality: Images can be embedded inside the users' notes.
 
-10. Adding Others as Editors/Viewers: Users can add other people to collaborate or view their notes.
+10. Editing Notes: users can edit their notes after they create the notes.
 
 11. User Logout: Users can log out of their account.
 
 [](IMG_7973.JPG)
 
 ## Non-functional Requirements
-1. Custom light/dark mode: An option for the user to set the page to have a light background and dark text (light mode) or a dark background and light text (dark mode)
+1. THe website is only expected to work better on Google Chrome.
 
-2. Passwords of users will be stored in the Database integrating the MD5 hashing algorithm
+2. The passwords of users will be stored in the Database integrating the hashing algorithm
 
 <each of the 14 requirements will have a use case associated with it>
 ## Use Cases 
 
 ### 1. Login Page (Hannah Ta)
 - **Pre-condition:** User is not currently logged in
-- **Trigger:** User goes to the login page through a hyperlink called "login"
+- **Trigger:** Loading the website for the first time
 - **Primary Sequence:**
-  1. User selects the "login" link on the home page
-  2. The system takes the user to a page that prompts the user to input their account information (username/email and password)
+  1. User will be met with a login page the first time they enter and open the website
+  2. System prompts user to enter username and password
   3. The user inputs the information and presses "login" to attempt a login
   4. The system will verify that the account matches an existing account in a database containing all created accounts
 - **Primary Postconditions:** User will be logged in given the system matches the information with an existing account
 - **Alternate Sequence:** User information does not match or doesn't exist
   1. The system will tell the user "Information does not match with an existing account/does not exist"
   2. The user can select the "Forgot password?" option or "Create a new account"
-  3. If "Forgot password?" is selected, the system will take the user to a different page that will prompt the user to enter their email then a new password, and re-enter said password
+  3. If "Forgot password?" is selected, the system will take the user to a different page that will prompt the user to enter their unique username then a new password, and re-enter said password
   4. Once confirmed by the user, the system will send an email to the inputted email account that contains a link to verify the user before the change
-  5. After the user clicks the link in the email, the system will apply the changes and take the user to a page that says "Password has been changed. You may return to the home page" and has a link back to the home page
+  5. After the user clicks the link in the email, the system will apply the changes and take the user to a page that says "Password has been changed. You may return to the login page" and has a link back to the login page
   
 
-### 2. Ability to Categorize and Organize their Notes (KHAI TRUONG)
+### 2. Ability to Create Folders for their Notes (Martin Tran)
 - **Pre-condition:**
   - The user is logged into their account.
   - There are existing notes and folders within the user's account.
@@ -65,7 +65,7 @@
   1. User Add New Folder with Existing Names:
     - The system will show an error and ask the user to re-enter a new unique name 
   2. User Edits Folder Name:
-    - After creating a folder, the user may choose to edit the folder name. The system allows the user to update the folder's name.
+    - After creating a folder, the user may edit the folder name. The system allows the user to update the folder's name.
   3. User Removes Note from Folders:
     - At any point, the user can remove a note from a Folder. The system updates the note accordingly.
   4. User Deletes the Folder:
@@ -75,40 +75,45 @@
 
 ### 3. Create/Delete Notes (Hannah Ta)
 - **Pre-condition:** User must be a verified and logged-in account
-- **Trigger:** Selection of note options in the form of a create/delete button or a list of note settings
+- **Trigger:** Selection of note options in the form of a create/delete button 
 - **Primary Sequence:**
-  1. User selects a "create note" or selects a note(s) to delete
-  2. If "create note" is selected, the system will bring up a page that lists parts of the note to add before creating such as name, tag, note location, etc.
+  1. User selects a "create note" button or selects the delete button on an already existing note
+  2. If "create note" is selected, the system will bring up a page that has two inputs for the user, the title and body of the note
   3. User will fill out the information page and click "create note"
-  4. System will check if the required fields (name and location) are filled and confirm the decision with the user
-  5. User selects "yes" to create a note or "no" to cancel
-  6. If a note/notes are selected/highlighted by a user, a "delete note(s)" option will be available
-  7. User clicks on "delete note(s)"
-  8. System will show the note(s) that will be deleted and prompt the user to confirm the deletion
-  9. User can either cancel or confirm "yes" to delete note(s)
-  10. If "yes" is selected, the system will delete the note(s) 
+  4. System will create note and take user back to home page
+  6. If user presses the delete button of the note, system will delete note from their home page and the database
 - **Primary Postconditions:** User's desired note is created or desired note(s) is deleted
 - **Alternate Sequence:** If the note being deleted has other collaborators on it
   1. System will only delete the user's copy of the note and not the other collaborators' copies
   2. System will remove the user from the list of editors/readers on the note
 
 
-### 4. Autosave Functionality (Hannah Ta)
-- **Pre-condition:** User must be logged in
-- **Trigger:** User goes to the settings list
+### 4. Password Recovery (Hannah Ta)
+- **Pre-condition:**   The user must have a registered account with the system.
+                       The user must have access to the email address associated with the account.
+- **Trigger:** The user clicks the "Forgot Password" link on the login page.
 - **Primary Sequence:**
-  1. User selects/goes to the "autosave" section of the settings
-  2. User can bring down a list provided by the system to select the time interval for autosaves in minutes (1, 5, 10, etc., or custom)
-  3. User selects or inputs the time interval for the autosaves
-  4. System will set the internal timer for autosaves to the new set time interval
-- **Primary Postconditions:** The system will change the timer to the newly selected/inputted time interval by the user and autosave at every increment of the new time interval
-- **Alternate Sequence:** User wants to revert to the previous time interval
-  1. System will have saved the previous time interval before the most recent change
-  2. The user has the option to select "revert to previous time interval"
-  3. Selecting the option will prompt the system to change the time interval back to the previous one using the saved time interval.
+  1. The user selects the "Forgot Password" option on the login screen.
+  2. The system prompts the user to enter their registered email address.
+  3. The user enters their email address and submits the form.
+  4. The system verifies the email address against the registered users.
+  5. Upon successful verification, the system sends a password reset link to the user's email.
+  6. The user receives the email and clicks on the provided password reset link.
+  7. The link directs the user to a secure password reset page.
+  8. The user enters a new password, confirms it, and submits the form.
+  9. The system updates the user's password and confirms the change to the user.
+  10. The user is then redirected to the login page to access the account with the new password. 
+- **Primary Postconditions:** The user's password is successfully reset.
+                              The user has access to their account with the new password.
+                              The system logs the password reset activity for security purposes.
+- **Alternate Sequence:** 
+  1. If the email address is not found in the system (Step 4), the user is notified, and no email is sent.
+  2. If the password reset link expires or is invalid (Step 6), the user is prompted to restart the password recovery process.
+  3. If the user enters mismatched passwords on the reset page (Step 8), the system prompts the user to correct the mistake.
+  4. If a technical issue prevents the password reset (any step), the system provides an error message and suggests the user try again later or contact support.
 
 
-### 5. Editing Notes (KHAI TRUONG)
+### 5. Rich Text Editor (KHAI TRUONG)
 - **Pre-condition:** The user is logged into their account and has permission to edit the note.
                      The note that the user wishes to edit is accessible.
 - **Trigger:** The user decides to edit the text within a note.
@@ -117,7 +122,7 @@
   2. The user clicks on the 'Edit' button or directly clicks into the text area of the note to start editing.
   3. The user adds new text, deletes existing text, or modifies it as needed.
   4. To highlight, the user selects the text and clicks the 'Highlight' button.
-  5. To strike through, the user selects the text and clicks the 'Underline' button.
+  5. To strike-through, the user selects the text and clicks the 'Underline' button.
   6. To make text bold, the user selects the text and clicks the 'Bold' button or uses the keyboard shortcut.
 - **Primary Postconditions:** The user's changes are saved and reflected in the note.
                               The note displays the updated content with the applied formatting.
@@ -127,7 +132,7 @@
   3. If the system detects unsaved changes when the user attempts to navigate away from the note, it prompts the user to save or discard the changes before leaving.
 
 
-### 6. Create an Account Page (Hannah Ta)
+### 6. Create an Account Page (Khai Truong)
 - **Pre-condition:** User can either be logged in or not logged in
 - **Trigger:** User selects the "create account" option either from the home page or the login page
 - **Primary Sequence:**
@@ -187,7 +192,7 @@
      a. The system will show the error
      b. The system asks the user to type in new unique names for the note 
 
-### 9. Attach Images inside the Note Functionality (Martin Tran)
+### 9. Attach Images inside the Note Functionality (Khai Truong)
 - **Pre-condition:**
    - User must have an active account with the webpage.
    - User must be logged in to their accounts.
@@ -216,25 +221,31 @@
   5. URL doesn't exist
     - The system will show an error, and ask the user to re-enter the link to load.
 
-### 10. Edit/View Permissions to Others (KHAI TRUONG)
-- **Pre-condition:** User must be logged into their account.
-                    The note has already been created and saved in the user's account.
-                    The user has permission to set access rights for the note.
-- **Trigger:** The user adds collaborators to a note for viewing or editing.
+### 10. Edit Notes Function (Hannah Ta)
+- **Pre-condition:** The user must be logged into their account.
+                     The note to be edited must already exist in the user's account.
+- **Trigger:** The user selects a note to edit from their list of notes.
 - **Primary Sequence:** 
-  1. The user opens the note they wish to share and clicks on the 'Share' or 'Collaborate' button.
-  2. The user enters the email addresses or usernames of the individuals they want to collaborate with.
-  3. For each collaborator, the user sets the permission level: 'Can Edit' or 'Can View'.
-  4. The user clicks the 'Send Invites' button to send collaboration invites to the chosen individuals.
-  5. The system sends the invitations and displays a confirmation message to the user.
-  6. Collaborators receive the invitation and must accept it to gain access to the note.
-- **Primary Postconditions:** The invited collaborators have received their invitations.
-                              Once accepted, collaborators have the appropriate access rights set by the user.
+    1. The user navigates to the note they wish to edit from their list of notes or by using the search function.
+    2. The user clicks on the "Edit" option associated with the selected note.
+    3. The system opens the note in an editable format, displaying the current content of the note.
+    4. The user changes the note's text (e.g., adding new text, deleting existing text, formatting text).
+    5. If the user wants to highlight text, they select it and click the 'Highlight' button.
+    6. If the user wants to strike through text, they choose the text and click on the 'Strike Through' button.
+    7. If the user wants to bold text, they select the text and click on the 'Bold' button.
+    8. After making changes, the user clicks the “Save” button to update the note.
+    9. The system saves the changes and updates the notes in the user's account.
+    10. The user is either redirected to their list of notes or remains on the page to make further edits.
+- **Primary Postconditions:**
+    1. The note reflects all the changes made by the user.
+    2. The updated note is saved in the user's account.
+    3. The user can continue editing or return to their notes list.
 - **Alternate Sequence:** 
-  1. If the system cannot send invitations (due to an invalid email address, system error, etc.), it informs the user of the failure and provides an option to try again.
-  2. If a collaborator does not accept the invitation within a specific timeframe, the system may remind the user to follow up or resend the invitation.
-  3. The user may revoke or change permissions at any time if they decide to modify access rights.
-
+    1. If the user attempts to leave the editing page without saving changes, the system prompts to save or discard changes.
+    2. If the system encounters an error while saving (e.g., server issue), the user is notified of the failure and can attempt to save again.
+    3. If the user decides to discard changes made to the note, they can click on a “Cancel” or “Back” button, which discards changes and returns them to their notes list without saving any modifications.
+    4. If the user wants to undo changes, they can use an 'Undo' function or keyboard shortcut to revert to the previous state of the note.
+ 
 ### 11. User Logout (Martin Tran)
 - **Pre-condition:**
    - User must have an active account with the webpage.
