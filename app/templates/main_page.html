@@ -16,6 +16,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   {% endfor %}
+
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <h5> Welcome, {{ name }} </h5>
@@ -47,40 +48,87 @@
             <a href="{{ url_for('new_note') }}">
               <img src="../static/images/file-earmark-plus.svg" alt="add_file_icon">
             </a>
+            <dialog>
+              <button autofocus>Close</button>
+              <h3>New Folder: </h3>
+              <hr>
+
+              <form action="/main_page" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.name.label }}<br>
+                    {{ form.name(size=32) }}<br>
+                </p> 
+                <p>{{ form.submit() }}</p>
+            </form>
+            </dialog>
             <a href="#"><img src="../static/images/folder-plus.svg" alt="add_folder_icon"></a>
           </div>
           
           <div class="note-display">
             <div class= "container mt-3">
               <table class="table">
-                   {% if length == 0  %}
+                  {% if length == 0  %}
+                    <div class="alert alert-danger" role="alert">
+                        There is no note, ADD your first note now!!
+                    </div>
+                  {% else %}
+                    <thead class="table-dark">
+                        <tr>
+                          <th scope="col">Note's Title</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for note in notes %}   
+                        <tr>
+                          <td>{{note.title}}</td>
+                          <td>
+                            <a href="/edit/{{note.id}}" type="button" class="btn btn-success btn-sm mx-2">Edit</button> 
+                            <a href="/delete/{{note.id}}" type="button" class="btn btn-danger btn-sm mx-2">Delete</button> 
+                        </td>
+                        </tr>
+                        {% endfor %}
+                  
+                      </tbody>
+                  {% endif %}
+              </table>
+            </div>      
+          </div>
+
+          <div class="note-display">
+            <div class= "container mt-3">
+              <table class="table">
+                   {% if length1 == 0  %}
                   <div class="alert alert-danger" role="alert">
-                      There is no note, ADD your first note now!!
+                      There is no folder, ADD your first folder now!!
                   </div>
                   {% else %}
           
-                  <thead class="table-dark">
-                      <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {% for note in notes %}   
-                      <tr>
-                        <td>{{note.title}}</td>
-                        <td>
-                          <!-- <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-success btn-sm mx-2"><a href="/update/{{note.id}}">update</a></button> -->
-                          <a href="/edit/{{note.id}}" type="button" class="btn btn-success btn-sm mx-2">Edit</button> <!--update the link-->
-                          <a href="/delete/{{note.id}}" type="button" class="btn btn-danger btn-sm mx-2">Delete</button> <!--update the link-->
-                      </td>
-                      </tr>
-                      {% endfor %}
-                      {% endif %}
-                    </tbody>
+                    <thead class="table-dark">
+                        <tr>
+                          <th scope="col">Folder's Title</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for folder in folders %}   
+                        <tr>
+                          <td>{{folder.title}}</td>
+                          <td>
+                            
+                            <a href="/folder_view/{{folder.id}}" type="button" class="btn btn-success btn-sm mx-2">View</button> <!--update the link-->
+                            <a href="/delete_folder/{{folder.id}}" type="button" class="btn btn-danger btn-sm mx-2">Delete</button> <!--update the link-->
+                        </td>
+                        </tr>
+                        {% endfor %}
+
+                      </tbody>
+                    {% endif %}
                 </table>
+            </div>
           </div>      
-       
+          
         
     </div>
 
@@ -94,6 +142,20 @@
           document.getElementById("mySidebar").style.width = "0";
           document.getElementById("main").style.marginLeft= "0";
         }
+
+        const dialog = document.querySelector('dialog');
+        const openBtn = document.querySelector('dialog + a');
+        const closeBtn = document.querySelector('dialog button');
+
+          // "Show the dialog" button opens the dialog modally
+          openBtn.addEventListener("click", () => {
+            dialog.showModal();
+          });
+
+        // "Close" button closes the dialog
+          closeBtn.addEventListener("click", () => {
+            dialog.close();
+          });
     </script>
 
 

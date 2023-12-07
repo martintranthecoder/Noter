@@ -32,10 +32,14 @@ class SignupForm(FlaskForm):
         
 #Add Note Form
 class AddNoteForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
+    name = StringField('Note Title:', validators=[DataRequired()])
     body = CKEditorField('Body', validators=[DataRequired()])
     submit = SubmitField('Create')
 
+#Create Folder Form
+class CreateFolderForm(FlaskForm):
+    name = StringField('Folder Title:', validators=[DataRequired()])
+    submit = SubmitField('Create')
 #Note Saving for Editing    
 class SaveNoteForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
