@@ -33,22 +33,22 @@
 
 ### 1. Login Page (Hannah Ta)
 - **Pre-condition:** User is not currently logged in
-- **Trigger:** User goes to the login page through a hyperlink called "login"
+- **Trigger:** Loading the website for the first time
 - **Primary Sequence:**
-  1. User selects the "login" link on the home page
-  2. The system takes the user to a page that prompts the user to input their account information (username/email and password)
+  1. User will be met with a login page the first time they enter and open the website
+  2. System prompts user to enter username and password
   3. The user inputs the information and presses "login" to attempt a login
   4. The system will verify that the account matches an existing account in a database containing all created accounts
 - **Primary Postconditions:** User will be logged in given the system matches the information with an existing account
 - **Alternate Sequence:** User information does not match or doesn't exist
   1. The system will tell the user "Information does not match with an existing account/does not exist"
   2. The user can select the "Forgot password?" option or "Create a new account"
-  3. If "Forgot password?" is selected, the system will take the user to a different page that will prompt the user to enter their email then a new password, and re-enter said password
+  3. If "Forgot password?" is selected, the system will take the user to a different page that will prompt the user to enter their unique username then a new password, and re-enter said password
   4. Once confirmed by the user, the system will send an email to the inputted email account that contains a link to verify the user before the change
-  5. After the user clicks the link in the email, the system will apply the changes and take the user to a page that says "Password has been changed. You may return to the home page" and has a link back to the home page
+  5. After the user clicks the link in the email, the system will apply the changes and take the user to a page that says "Password has been changed. You may return to the login page" and has a link back to the login page
   
 
-### 2. Ability to Create Folders for their Notes (KHAI TRUONG)
+### 2. Ability to Create Folders for their Notes (Martin Tran)
 - **Pre-condition:**
   - The user is logged into their account.
   - There are existing notes and folders within the user's account.
@@ -75,18 +75,13 @@
 
 ### 3. Create/Delete Notes (Hannah Ta)
 - **Pre-condition:** User must be a verified and logged-in account
-- **Trigger:** Selection of note options in the form of a create/delete button or a list of note settings
+- **Trigger:** Selection of note options in the form of a create/delete button 
 - **Primary Sequence:**
-  1. User selects a "create note" or selects a note(s) to delete
-  2. If "create note" is selected, the system will bring up a page that lists parts of the note to add before creating such as name, tag, note location, etc.
+  1. User selects a "create note" button or selects the delete button on an already existing note
+  2. If "create note" is selected, the system will bring up a page that has two inputs for the user, the title and body of the note
   3. User will fill out the information page and click "create note"
-  4. System will check if the required fields (name and location) are filled and confirm the decision with the user
-  5. User selects "yes" to create a note or "no" to cancel
-  6. If a note/notes are selected/highlighted by a user, a "delete note(s)" option will be available
-  7. User clicks on "delete note(s)"
-  8. System will show the note(s) that will be deleted and prompt the user to confirm the deletion
-  9. User can either cancel or confirm "yes" to delete note(s)
-  10. If "yes" is selected, the system will delete the note(s) 
+  4. System will create note and take user back to home page
+  6. If user presses the delete button of the note, system will delete note from their home page and the database
 - **Primary Postconditions:** User's desired note is created or desired note(s) is deleted
 - **Alternate Sequence:** If the note being deleted has other collaborators on it
   1. System will only delete the user's copy of the note and not the other collaborators' copies
@@ -137,7 +132,7 @@
   3. If the system detects unsaved changes when the user attempts to navigate away from the note, it prompts the user to save or discard the changes before leaving.
 
 
-### 6. Create an Account Page (Hannah Ta)
+### 6. Create an Account Page (Khai Truong)
 - **Pre-condition:** User can either be logged in or not logged in
 - **Trigger:** User selects the "create account" option either from the home page or the login page
 - **Primary Sequence:**
@@ -197,7 +192,7 @@
      a. The system will show the error
      b. The system asks the user to type in new unique names for the note 
 
-### 9. Attach Images inside the Note Functionality (Martin Tran)
+### 9. Attach Images inside the Note Functionality (Khai Truong)
 - **Pre-condition:**
    - User must have an active account with the webpage.
    - User must be logged in to their accounts.
@@ -226,7 +221,7 @@
   5. URL doesn't exist
     - The system will show an error, and ask the user to re-enter the link to load.
 
-### 10. Edit Notes Function (KHAI TRUONG)
+### 10. Edit Notes Function (Hannah Ta)
 - **Pre-condition:** The user must be logged into their account.
                      The note to be edited must already exist in the user's account.
 - **Trigger:** The user selects a note to edit from their list of notes.
@@ -250,6 +245,7 @@
     2. If the system encounters an error while saving (e.g., server issue), the user is notified of the failure and can attempt to save again.
     3. If the user decides to discard changes made to the note, they can click on a “Cancel” or “Back” button, which discards changes and returns them to their notes list without saving any modifications.
     4. If the user wants to undo changes, they can use an 'Undo' function or keyboard shortcut to revert to the previous state of the note.
+ 
 ### 11. User Logout (Martin Tran)
 - **Pre-condition:**
    - User must have an active account with the webpage.
