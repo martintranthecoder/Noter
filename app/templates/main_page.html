@@ -10,6 +10,12 @@
     
 </head>
 <body>
+  {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <h5> Welcome, {{ name }} </h5>
@@ -21,7 +27,6 @@
             </button>
             <div class="collapse" id="account-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a></li>
                 <li><a href="{{ url_for('logout') }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Log out</a></li>
               </ul>
             </div>
@@ -75,19 +80,7 @@
                     </tbody>
                 </table>
           </div>      
-            <!-- not need rn-->
-            <!-- <div class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0  collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
-                  Project 131
-                </button>
-                <div class="collapse" id="home-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Note_131_1</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Note_131_2</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Note_131_3</a></li>
-                  </ul>
-                </div>
-          </div> -->
+       
         
     </div>
 

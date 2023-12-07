@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, flash, request
-from app.forms import LoginForm, SignupForm, AddNoteForm, SaveNoteForm
+from app.forms import LoginForm, SignupForm, AddNoteForm, SaveNoteForm, ForgotPassword
 from flask_login import current_user, login_user, logout_user, login_required
 from app import myapp, login
 from app import db
@@ -20,7 +20,7 @@ def login():
             flash("Please make sure you enter correct username and password and try again.")
             return redirect(url_for('login'))
         login_user(user, remember = form.remember_me.data)
-        return redirect(url_for('main_page')) # missing page to redirect to
+        return redirect(url_for('main_page')) 
     
     return render_template('login.html', title='Login', form=form)
 
@@ -145,3 +145,22 @@ def view_note(note_id):
         db.session.commit()
 
     return render_template('note_view.html', name=note.title, body=note.body, note=note, form=form)
+
+#password reset
+@myapp.route('/password_reset', methods=['GET','POST'])
+def password_reset():
+    form = ForgotPassword()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=form.username.data).first()
+        if user:
+            new_password = form.new_password.data
+            user.set_password(new_password)
+            
+            db.session.commit()
+            flash("Password has been reset.")
+            return redirect(url_for('login'))
+        else:
+            flash("Not valid user information")
+            return redirect(url_for('password_reset'))
+    
+    return render_template('forgot_password.html', form=form)

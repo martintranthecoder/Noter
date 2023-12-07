@@ -1,16 +1,17 @@
 from flask_wtf import FlaskForm
-from app.models import User
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
+from app.models import User, Note
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from flask_ckeditor import CKEditorField
-import time
 
+#Login form
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
-    
+
+#Sign Up/Create new account
 class SignupForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     username = StringField('Username', validators=[DataRequired()])
@@ -34,9 +35,16 @@ class AddNoteForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     body = CKEditorField('Body', validators=[DataRequired()])
     submit = SubmitField('Create')
-    
+
+#Note Saving for Editing    
 class SaveNoteForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     body = CKEditorField('Body', validators=[DataRequired()])
-    time = time.time()
     submit = SubmitField('Save')
+
+#Password reset if forgot password
+class ForgotPassword(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()]) 
+    new_password = PasswordField('New Password', validators=[DataRequired()]) 
+    confirm_new = PasswordField('Confirm New Password', validators=[DataRequired(), EqualTo('new_password', message="Passwords must match")])
+    submit = SubmitField('Submit')
