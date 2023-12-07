@@ -94,13 +94,28 @@
 
 
 ### 4. Password Recovery (Hannah Ta)
-- **Pre-condition:** 
-- **Trigger:** 
+- **Pre-condition:**   The user must have a registered account with the system.
+                       The user must have access to the email address associated with the account.
+- **Trigger:** The user clicks the "Forgot Password" link on the login page.
 - **Primary Sequence:**
-  1. 
-- **Primary Postconditions:** 
+  1. The user selects the "Forgot Password" option on the login screen.
+  2. The system prompts the user to enter their registered email address.
+  3. The user enters their email address and submits the form.
+  4. The system verifies the email address against the registered users.
+  5. Upon successful verification, the system sends a password reset link to the user's email.
+  6. The user receives the email and clicks on the provided password reset link.
+  7. The link directs the user to a secure password reset page.
+  8. The user enters a new password, confirms it, and submits the form.
+  9. The system updates the user's password and confirms the change to the user.
+  10. The user is then redirected to the login page to access the account with the new password. 
+- **Primary Postconditions:** The user's password is successfully reset.
+                              The user has access to their account with the new password.
+                              The system logs the password reset activity for security purposes.
 - **Alternate Sequence:** 
-  1. 
+  1. If the email address is not found in the system (Step 4), the user is notified, and no email is sent.
+  2. If the password reset link expires or is invalid (Step 6), the user is prompted to restart the password recovery process.
+  3. If the user enters mismatched passwords on the reset page (Step 8), the system prompts the user to correct the mistake.
+  4. If a technical issue prevents the password reset (any step), the system provides an error message and suggests the user try again later or contact support.
 
 
 ### 5. Rich Text Editor (KHAI TRUONG)
@@ -212,13 +227,29 @@
     - The system will show an error, and ask the user to re-enter the link to load.
 
 ### 10. Edit Notes Function (KHAI TRUONG)
-- **Pre-condition:** 
-- **Trigger:** 
+- **Pre-condition:** The user must be logged into their account.
+                     The note to be edited must already exist in the user's account.
+- **Trigger:** The user selects a note to edit from their list of notes.
 - **Primary Sequence:** 
-  
-- **Primary Postconditions:** 
+    1. The user navigates to the note they wish to edit from their list of notes or by using the search function.
+    2. The user clicks on the "Edit" option associated with the selected note.
+    3. The system opens the note in an editable format, displaying the current content of the note.
+    4. The user changes the note's text (e.g., adding new text, deleting existing text, formatting text).
+    5. If the user wants to highlight text, they select it and click the 'Highlight' button.
+    6. If the user wants to strike through text, they choose the text and click on the 'Strike Through' button.
+    7. If the user wants to bold text, they select the text and click on the 'Bold' button.
+    8. After making changes, the user clicks the “Save” button to update the note.
+    9. The system saves the changes and updates the notes in the user's account.
+    10. The user is either redirected to their list of notes or remains on the page to make further edits.
+- **Primary Postconditions:**
+    1. The note reflects all the changes made by the user.
+    2. The updated note is saved in the user's account.
+    3. The user can continue editing or return to their notes list.
 - **Alternate Sequence:** 
-  
+    1. If the user attempts to leave the editing page without saving changes, the system prompts to save or discard changes.
+    2. If the system encounters an error while saving (e.g., server issue), the user is notified of the failure and can attempt to save again.
+    3. If the user decides to discard changes made to the note, they can click on a “Cancel” or “Back” button, which discards changes and returns them to their notes list without saving any modifications.
+    4. If the user wants to undo changes, they can use an 'Undo' function or keyboard shortcut to revert to the previous state of the note.
 ### 11. User Logout (Martin Tran)
 - **Pre-condition:**
    - User must have an active account with the webpage.
