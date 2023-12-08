@@ -151,15 +151,21 @@
 ### 7. View Folders (Martin Tran)
 
 - **Pre-condition:**
- 
-- **Trigger:** 
+ - The user must have an active account
+ - The user must be logged in to their account
+ - The user must have at least one created folder
+- **Trigger:** The user clicks 'View' in one of the folder's action
 - **Primary Sequence:**
-  1. 
+  1. The user logged in the their account to the home page.
+  2. The user clicks on the add folder icon to add a folder.
+  3. After you named your folder's title, the folder should be created and appears two actions: 'View' and 'Delete'.
+  4. The user clicks 'View' to view the folder
+  5. The system will redirect you to the folder page where you can create notes inside the folder
 - **Primary Postconditions:**
-  1. 
+  1. The user can add as many notes inside the notes as they want 
 - **Alternate Sequence:** 
-  1. 
-  2. 
+  1. If the user hasn't created a folder, they cannot view the folder 
+  2. If the folder is already deleted, they can't view it.
 
 
 ### 8. Storing Notes in the Database (Martin Tran)
