@@ -151,9 +151,9 @@
 ### 7. View Folders (Martin Tran)
 
 - **Pre-condition:**
- - The user must have an active account
- - The user must be logged in to their account
- - The user must have at least one created folder
+   - The user must have an active account
+   - The user must be logged in to their account
+   - The user must have at least one created folder
 - **Trigger:** The user clicks 'View' in one of the folder's action
 - **Primary Sequence:**
   1. The user logged in the their account to the home page.
