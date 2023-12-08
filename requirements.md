@@ -11,13 +11,13 @@
 
 6. Create Account Page: A page for the user to create a new account and confirm with the system for verification and security purposes before the system creates the account.
 
-7. Advanced Search Using Regular Expressions: A functionality that helps users search for words and perform complex pattern matching.
+7. View Folders: Users can view their created folders and the notes associated with the folder.
 
 8. Storing Notes in the Database: Notes and associated metadata (e.g., tags, folders, timestamps) should be stored securely in a database. This ensures persistent storage and retrieval of user-generated content.
 
 9. Attach Images inside the Note Functionality: Images can be embedded inside the users' notes.
 
-10. Editing Notes: users can edit their notes after they create the notes.
+10. Editing Notes: users can edit their notes after creating them.
 
 11. User Logout: Users can log out of their account.
 
@@ -148,27 +148,18 @@
   2. If the username matches an already existing username in the database, the system will tell the user's username has already been taken" and prompt the user to enter a new username
 
 
-### 7. Advanced Search Using Regular Expressions (Martin Tran)
+### 7. View Folders (Martin Tran)
 
 - **Pre-condition:**
-  - User must have an active account with the webpage.
-  - User must be logged in to their accounts.
-  - User should have at least a note with the content inside it.
-- **Trigger:** User clicks on the search bar 
+ 
+- **Trigger:** 
 - **Primary Sequence:**
-  1. The user accesses one of their notes.
-  2. The user clicks on the search bar to search for the word or phrase in their notes.
-  3. The user types in the search bar with the word/phrase and adds regular expressions (optional) into the search bar
-  4. The system will look for the word/phrase that they want inside the note
-  5. The system will return the results of searching and redirect to the line of the first result that the system found.
+  1. 
 - **Primary Postconditions:**
-  1. The user can click on Next/Prev. keywords (in the search bar) to direct themselves to the line of the word/phrase they want to search for.
-  2. The user can click "x" to end their search.
+  1. 
 - **Alternate Sequence:** 
-  1. The user enters a word/phrase that doesn't exist
-     a. The system won't show any results of the search
-  2. The user enters the wrong regular expressions 
-    a. The system won't show any results of the search 
+  1. 
+  2. 
 
 
 ### 8. Storing Notes in the Database (Martin Tran)
