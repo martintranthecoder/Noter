@@ -1,3 +1,5 @@
+<img src="app/static/images/logo.png" alt="Logo" style="display: block; margin: 0 auto;" width="100px" height="100px">
+<br/>
 <h1 align="center"> Noter</h1>
 
 # Project Members
@@ -54,6 +56,17 @@ pip install flask flask_sqlalchemy flask-ckeditor email-validator Werkzeug==3.0.
 flask run
 ~~~
 
+
+
+⚠️ ATTENTION ⚠️
+When first running the website, and you encourtered this problem:
+
+```
+ImportError: cannot import name 'url_decode' from 'werkzeug.urls'
+```
+=> We recommend you should close the tab or terminal, then re-run the application later <br>
+This is a little bug from the software and packages that we are using for the project. Thank you for understanding
+
 # Recent Implementation
 1. A simple user Sign Up page for user to create an account with our project to ensure the security of your notes. (**Martin Tran**) <br>
 <img src="app/static/images/sign_up.png" alt="Sign Up Page" width="858" height="800">
@@ -67,11 +80,25 @@ flask run
 4. Storing Notes in the Database, so users can retrieve the notes they created whenever they want (**Hannah Ta & Khai Truong**) 
 
 5. Rich Text Editor when users create new note (**Khai Truong & Martin Tran**) <br>
-<img src="app/static/images/create_note.png" alt="Note Creation Page" width="858" height="800">
+<img src="app/static/images/text_editor.png" alt="Note Creation Page" width="858" height="800">
 
 6. A Log Out Function for you to log out of your note page (**Martin Tran**) <br>
-<img src="app/static/images/logout.png" alt="Log Out Sidebar" width="858" height="800">
+<img src="app/static/images/log_out.png" alt="Log Out Sidebar" width="858" height="800">
 
+7. Ability to Create Folders (**Martin Tran**) <br>
+<img src="app/static/images/folder.png" alt="Note Creation Page" width="858" height="800">
+
+8. Viewing Folders (**Martin Tran**) <br>
+<img src="app/static/images/folder_view.png" alt="Note Creation Page" width="858" height="800">
+
+9. Attach Images inside notes via URLs (**Martin Tran & Khai Truong**) <br>
+<img src="app/static/images/image_attach.png" alt="Note Creation Page" width="858" height="800">
+
+10. Editing Notes (**Hannah Ta**) <br>
+<img src="app/static/images/edit_note.png" alt="Note Creation Page" width="858" height="800">
+
+11. Password Recovery (**Hannah Ta**) <br>
+<img src="app/static/images/reset_password.png" alt="Note Creation Page" width="858" height="800">
 
 
 
