@@ -12,6 +12,9 @@
 # Project Description:
 Noter is a simple web-based note-taking app for users. We use Flask with Flask extensions such as Flask-Login, FLask-SQLAlchemy, etc. to write this app. Noter provide the users with a solution to taking note in their daily activities, classes, or work. In this app, you will be able to create notes, delete notes, and view the notes with a rich text editor.
 
+# Project Overview Video:
+https://drive.google.com/drive/folders/16wQnlh2UQL3AYJ3SkEwrTICOlCvQPmaI
+
 # Functional Requirements: 
 (please check out our file named "[requirements.md](https://github.com/martintranthecoder/Noter/blob/main/requirements.md)")
 
@@ -70,10 +73,10 @@ ImportError: cannot import name 'url_decode' from 'werkzeug.urls'
 This is a little bug in the software and packages that we are using for the project. Thank you for understanding
 
 # Recent Implementation
-1. A simple user Sign-up page for users to create an account with our project to ensure the security of your notes. (**Martin Tran**) <br>
+1. A simple user Sign-up page for users to create an account with our project to ensure the security of your notes. (**Martin Tran & Khai Truong**) <br>
 <img src="app/static/images/sign_up.png" alt="Sign Up Page" width="858" height="800">
 
-2. A simple Login page after you register an Account with us. (**Martin Tran**)<br>
+2. A simple Login page after you register an Account with us. (**Martin Tran & Hannah Ta**)<br>
 <img src="app/static/images/log_in.png" alt="Log In Page" width="858" height="800">
 
 3. Create/Delete Notes (**Hannah Ta & Martin Tran**) <br>
