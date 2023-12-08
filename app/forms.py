@@ -40,6 +40,7 @@ class AddNoteForm(FlaskForm):
 class CreateFolderForm(FlaskForm):
     name = StringField('Folder Title:', validators=[DataRequired()])
     submit = SubmitField('Create')
+    
 #Note Saving for Editing    
 class SaveNoteForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])

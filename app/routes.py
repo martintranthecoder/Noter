@@ -162,7 +162,7 @@ def delete_note(note_id):
                            length = len(Note.query.filter_by(user_id=current_user.id).all()),
                            folders = all_folders, length1 = length1, form = form)
 
-#view note function
+#edit note function
 @myapp.route('/edit/<int:note_id>', methods=['GET','POST'])
 def view_note(note_id):
     note = Note.query.filter_by(id=note_id).first()
