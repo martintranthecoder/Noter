@@ -31,5 +31,10 @@
 
 ### 2023-11-29 at 8 p.m
 - Martin, Hannah
-- We talked about our confusions on the functional requirements
-- We decided to submit the Milestone 2 late because don't have enough time to finish all 6 requirements
+- We talked about our confusion about the functional requirements
+- We decided to submit Milestone 2 late because we didn't have enough time to finish all 6 requirements
+
+### 2023-12-5 at 10:30 p.m
+- Martin, Khai, Hannah
+- We discussed how we should implement the rest of the functional requirements
+- Also delegating our work was a part of the meeting.
